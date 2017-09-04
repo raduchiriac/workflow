@@ -1,6 +1,10 @@
-<button class="btn btn-primary" (click)="loadNew()">Load New</button>
-<ol>
-    <li *ngFor="let task of (tasks | async)">
-        {{task.name}}
-    </li>
-</ol>
+<button md-raised-button (click)="loadNew()">
+  <span>Refresh</span>
+  <tasks-count></tasks-count>
+</button>
+<md-list>
+    <md-list-item *ngFor="let task of (tasks | async)">
+        <md-icon mdListIcon>folder</md-icon>
+        <p mdLine>{{task.name}}</p>
+    </md-list-item>
+</md-list>
