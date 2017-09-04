@@ -18,13 +18,11 @@ import { LoaderService } from './loader/loader.service';
 @Injectable()
 export class HttpService extends Http {
 
-    apiUrl = 'https://dingo-api.codingo.me/';
-
     constructor(
         backend: XHRBackend,
         defaultOptions: AngularReduxRequestOptions,
         private loaderService: LoaderService
-    ) { 
+    ) {
         super(backend, defaultOptions);
     }
 
@@ -59,7 +57,7 @@ export class HttpService extends Http {
     }
 
     private getFullUrl(url: string): string {
-        return this.apiUrl + url;
+        return url;
     }
 
     private onCatch(error: any, caught: Observable<any>): Observable<any> {

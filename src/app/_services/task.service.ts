@@ -14,7 +14,7 @@ export class TaskService {
 
     tasks: Observable<Array<Task>>;
 
-    tasksURL = 'campaign';
+    tasksURL = 'https://dingo-api.codingo.me/campaign';
 
     constructor(
         private http: HttpService,

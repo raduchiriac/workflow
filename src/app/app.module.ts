@@ -6,11 +6,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
 import { MaterialComponents } from './core/material-components';
 
 import { AppComponent } from './app.component';
+import AppRoutes from './core/app-routes';
 
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
@@ -30,6 +32,9 @@ import { TasksReducer } from './_reducers';
     FormsModule,
     HttpModule,
     CoreModule,
+    RouterModule.forRoot(
+      AppRoutes
+    ),
     StoreModule.forRoot({
       tasks: TasksReducer
     }),

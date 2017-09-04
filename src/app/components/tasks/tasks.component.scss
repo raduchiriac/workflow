@@ -8,3 +8,26 @@
   line-height: 20px;
   color: white;
 }
+
+.task {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0,0,0,.05);
+  }
+
+  .mat-list-icon.task-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.online {
+      color: limegreen;
+    }
+  }
+
+  .task-title {
+    flex-grow: 1
+  }
+}
+

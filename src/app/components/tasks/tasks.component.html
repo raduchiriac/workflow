@@ -3,8 +3,8 @@
   <tasks-count></tasks-count>
 </button>
 <md-list>
-    <md-list-item *ngFor="let task of (tasks | async)">
-        <md-icon mdListIcon>folder</md-icon>
-        <p mdLine>{{task.name}}</p>
+    <md-list-item *ngFor="let task of (tasks | async)" class="task">
+        <md-icon md-list-icon aria-hidden="true" mdTooltip="online" class="task-status online">lens<span class="cdk-visually-hidden">online</span></md-icon>
+        <p mdLine class="task-title">{{task.name}}</p>
     </md-list-item>
 </md-list>
