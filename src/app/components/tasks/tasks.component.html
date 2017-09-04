@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="loadNew()">Load New</button>
+<ol>
+    <li *ngFor="let task of (tasks | async)">
+        {{task.name}}
+    </li>
+</ol>

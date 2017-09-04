@@ -5,36 +5,40 @@ import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CoreModule } from './core/core.module';
+import { MaterialComponents } from './core/material-components';
 
 import { AppComponent } from './app.component';
-import { CampaignComponent } from './resources/campaign/campaign.component';
-import { CampaignCountComponent } from './resources/campaign/count.component';
 
-import { CampaignService } from './_services/campaign.service';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TasksCountComponent } from './components/tasks/tasks-count.component';
+import { TaskService } from './_services';
 
-import { campaigns } from './_reducers/campaign.reducer';
+import { TasksReducer } from './_reducers';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CampaignComponent,
-    CampaignCountComponent
+    TasksComponent,
+    TasksCountComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     CoreModule,
-    StoreModule.provideStore({
-      campaigns:campaigns
+    StoreModule.forRoot({
+      tasks: TasksReducer
     }),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    MaterialModule
+    StoreDevtoolsModule.instrument(),
+    MaterialModule,
+    MaterialComponents
   ],
   providers: [
-    CampaignService
+    TaskService
   ],
   bootstrap: [AppComponent]
 })

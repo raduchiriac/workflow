@@ -1,5 +1,5 @@
-import { Campaign } from './_models/campaign';
+import { Task } from './_models';
 
 export interface AppStore {
-    campaigns: Campaign[];
+    tasks: Task[];
 }

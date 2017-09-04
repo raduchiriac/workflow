@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.26",
-    "name": "angular-redux"
+    "version": "1.3.2",
+    "name": "workflow-api"
   },
   "apps": [
     {
@@ -18,7 +18,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -39,7 +39,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,
