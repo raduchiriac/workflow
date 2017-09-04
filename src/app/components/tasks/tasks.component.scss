@@ -1,7 +1,7 @@
 .tasks-count {
   position: absolute;
   border-radius: 50%;
-  background: red;
+  background: #EC1414;
   width: 20px;
   height: 20px;
   font-size: 10px;
@@ -14,15 +14,18 @@
   align-items: center;
 
   &:hover {
-    background-color: rgba(0,0,0,.05);
+    background-color: rgba(0,0,0,.04);
   }
 
   .mat-list-icon.task-status {
     display: flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+      cursor: default;
+    }
     &.online {
-      color: limegreen;
+      color: #33DB33;
     }
   }
 

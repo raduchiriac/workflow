@@ -6,13 +6,13 @@ import { Task } from '../../_models/task';
 import { TaskService } from '../../_services';
 
 @Component({
-    selector: 'tasks',
-    templateUrl: 'tasks.component.html',
-    styleUrls: ['tasks.component.scss'],
+    selector: 'task',
+    templateUrl: 'task.component.html',
+    styleUrls: [],
     encapsulation: ViewEncapsulation.None
 })
 
-export class TasksComponent implements OnInit, OnDestroy {
+export class TaskComponent implements OnInit, OnDestroy {
 
     // Redux based variables
     tasks: Observable<Array<Task>>;

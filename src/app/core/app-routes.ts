@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { TasksComponent } from '../components/tasks/tasks.component';
+import { TaskComponent } from '../components/tasks/task.component';
 import { PageNotFoundComponent } from './404/page-not-found.component';
 
 const AppRoutes: Routes = [{
@@ -8,6 +9,9 @@ const AppRoutes: Routes = [{
     data: {
       title: 'Tasks List'
     }
+  }, {
+    path: 'task/:id',
+    component: TaskComponent
   }, {
     path: '',
     redirectTo: '/tasks',

@@ -16,6 +16,7 @@ import AppRoutes from './core/app-routes';
 
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
+import { TaskComponent } from './components/tasks/task.component';
 import { TaskService } from './_services';
 
 import { TasksReducer } from './_reducers';
@@ -24,7 +25,8 @@ import { TasksReducer } from './_reducers';
   declarations: [
     AppComponent,
     TasksComponent,
-    TasksCountComponent
+    TasksCountComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
