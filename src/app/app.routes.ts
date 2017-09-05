@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { TasksComponent } from '../components/tasks/tasks.component';
-import { TaskComponent } from '../components/tasks/task.component';
-import { PageNotFoundComponent } from './404/page-not-found.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskComponent } from './components/tasks/task.component';
+import { PageNotFoundComponent } from './core/404/page-not-found.component';
 
-const AppRoutes: Routes = [{
+export const AppRoutes: Routes = [{
     path: 'tasks',
     component: TasksComponent,
     data: {
@@ -21,6 +21,3 @@ const AppRoutes: Routes = [{
     component: PageNotFoundComponent
   }
 ];
-
-export default AppRoutes;
-

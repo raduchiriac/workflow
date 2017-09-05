@@ -6,7 +6,7 @@ import { Task } from '../../_models/task';
 import { TaskService } from '../../_services';
 
 @Component({
-    selector: 'task',
+    selector: 'app-task',
     templateUrl: 'task.component.html',
     styleUrls: [],
     encapsulation: ViewEncapsulation.None

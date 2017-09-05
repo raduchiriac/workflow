@@ -9,10 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
-import { MaterialComponents } from './core/material-components';
-
 import { AppComponent } from './app.component';
-import AppRoutes from './core/app-routes';
+import { AppRoutes } from './app.routes';
 
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
@@ -33,6 +31,7 @@ import { TasksReducer } from './_reducers';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
     CoreModule,
     RouterModule.forRoot(
       AppRoutes
@@ -41,8 +40,6 @@ import { TasksReducer } from './_reducers';
       tasks: TasksReducer
     }),
     StoreDevtoolsModule.instrument(),
-    MaterialModule,
-    MaterialComponents
   ],
   providers: [
     TaskService

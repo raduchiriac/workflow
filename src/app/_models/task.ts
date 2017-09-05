@@ -1,6 +1,6 @@
 export interface Task {
-    name: string;
-    token: string;
-    totalBanners: number;
-    activeBanners: number;
+  name: string;
+  token: string;
+  totalBanners: number;
+  activeBanners: number;
 }

@@ -2,85 +2,84 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {
-    Http,
-    RequestOptions,
-    RequestOptionsArgs,
-    Response,
-    Request,
-    Headers,
-    XHRBackend
+  Http,
+  RequestOptions,
+  RequestOptionsArgs,
+  Response,
+  Request,
+  Headers,
+  XHRBackend
 } from '@angular/http';
 
 import { AngularReduxRequestOptions } from './angular-redux-request.options';
-
 import { LoaderService } from './loader/loader.service';
 
 @Injectable()
 export class HttpService extends Http {
 
-    constructor(
-        backend: XHRBackend,
-        defaultOptions: AngularReduxRequestOptions,
-        private loaderService: LoaderService
-    ) {
-        super(backend, defaultOptions);
+  constructor(
+    backend: XHRBackend,
+    defaultOptions: AngularReduxRequestOptions,
+    private loaderService: LoaderService
+  ) {
+    super(backend, defaultOptions);
+  }
+
+  public get(url: string, options ?: RequestOptionsArgs): Observable < any > {
+
+    this.showLoader();
+
+    return super.get(this.getFullUrl(url), this.requestOptions(options))
+      .catch(this.onCatch)
+      .do((res: Response) => {
+        this.onSuccess(res);
+      }, (error: any) => {
+        this.onError(error);
+      })
+      .finally(() => {
+        this.onEnd();
+      });
+
+  }
+
+  private requestOptions(options ?: RequestOptionsArgs): RequestOptionsArgs {
+
+    if (options == null) {
+      options = new AngularReduxRequestOptions();
     }
 
-    get(url: string, options?: RequestOptionsArgs): Observable<any> {
-
-        this.showLoader();
-
-        return super.get(this.getFullUrl(url), this.requestOptions(options))
-            .catch(this.onCatch)
-            .do((res: Response) => {
-                this.onSuccess(res);
-            }, (error: any) => {
-                this.onError(error);
-            })
-            .finally(() => {
-                this.onEnd();
-            });
-
+    if (options.headers == null) {
+      options.headers = new Headers();
     }
 
-    private requestOptions(options?: RequestOptionsArgs): RequestOptionsArgs {
+    return options;
+  }
 
-        if (options == null) {
-            options = new AngularReduxRequestOptions();
-        }
+  private getFullUrl(url: string): string {
+    return url;
+  }
 
-        if (options.headers == null) {
-            options.headers = new Headers();
-        }
+  private onCatch(error: any, caught: Observable <any> ): Observable <any> {
+    return Observable.throw(error);
+  }
 
-        return options;
-    }
+  private onSuccess(res: Response): void {
+    console.log('Request successful');
+  }
 
-    private getFullUrl(url: string): string {
-        return url;
-    }
+  private onError(res: Response): void {
+    console.log('Error, status code: ' + res.status);
+  }
 
-    private onCatch(error: any, caught: Observable<any>): Observable<any> {
-        return Observable.throw(error);
-    }
+  private onEnd(): void {
+    this.hideLoader();
+  }
 
-    private onSuccess(res: Response): void {
-        console.log('Request successful');
-    }
+  private showLoader(): void {
+    this.loaderService.show();
+  }
 
-    private onError(res: Response): void {
-        console.log('Error, status code: ' + res.status);
-    }
-
-    private onEnd(): void {
-        this.hideLoader();
-    }
-
-    private showLoader(): void {
-        this.loaderService.show();
-    }
-
-    private hideLoader(): void {
-        this.loaderService.hide();
-    }
+  private hideLoader(): void {
+    this.loaderService.hide();
+  }
 }

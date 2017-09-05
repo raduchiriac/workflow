@@ -1,24 +1,26 @@
 <button md-raised-button (click)="loadNew()">
-  <span>Refresh</span>
-  <tasks-count></tasks-count>
+  <span>GET</span>
+  <app-tasks-count></app-tasks-count>
 </button>
-<md-list>
 
+<md-list>
   <md-list-item *ngFor="let task of (tasks | async)" class="task">
-      <a md-button routerLink="/task/{{task.token}}"><md-icon class="md-24">settings</md-icon></a>
-      <md-button-toggle-group #group="mdButtonToggleGroup">
-        <md-button-toggle value="done" checked="checked">
-          <md-icon>done</md-icon>
-        </md-button-toggle>
-        <md-button-toggle md-button color="primary">
-          <md-icon>autorenew</md-icon>
-        </md-button-toggle>
-        <md-button-toggle value="settings_power">
-          <md-icon>settings_power</md-icon>
-        </md-button-toggle>
-      </md-button-toggle-group>
-      <md-icon md-list-icon aria-hidden="true" mdTooltip="online" class="task-status online">lens<span class="cdk-visually-hidden">online</span></md-icon>
-      <p mdLine class="task-title">{{task.name}}</p>
-      <p mdLine class="task-time">02/02/1900</p>
-    </md-list-item>
+    <a md-button routerLink="/task/{{task.token}}"><md-icon class="md-24">settings</md-icon></a>
+
+    <md-button-toggle-group #group="mdButtonToggleGroup">
+      <md-button-toggle value="done" checked="checked">
+        <md-icon>done</md-icon>
+      </md-button-toggle>
+      <md-button-toggle md-button color="primary">
+        <md-icon>autorenew</md-icon>
+      </md-button-toggle>
+      <md-button-toggle value="settings_power">
+        <md-icon>settings_power</md-icon>
+      </md-button-toggle>
+    </md-button-toggle-group>
+
+    <md-icon md-list-icon aria-hidden="true" mdTooltip="online" class="task-status online">lens<span class="cdk-visually-hidden">online</span></md-icon>
+    <p mdLine class="task-title">{{task.name}}</p>
+    <p mdLine class="task-time">02/02/1900</p>
+  </md-list-item>
 </md-list>
