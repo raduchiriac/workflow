@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 import { Task } from '../_models';
+import { TasksActions } from '../store/actions';
 
 import { HttpService } from '../core/http.service';
 
@@ -30,7 +31,7 @@ export class TaskService {
       })
       .map((payload: Task[]) => {
         return {
-          type: 'ADD_TASKS',
+          type: TasksActions.TASKS_ADD,
           payload
         };
       })
@@ -38,4 +39,10 @@ export class TaskService {
         this.store.dispatch(action);
       });
 
+    getTask = (token) => {
+      console.log('====================================');
+      console.log(this.store.select(store => store.tasks));
+      console.log('====================================');
+      return {name: 'TODO'}
+    }
 }

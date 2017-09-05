@@ -10,7 +10,7 @@ export const AppRoutes: Routes = [{
       title: 'Tasks List'
     }
   }, {
-    path: 'task/:id',
+    path: 'task/:token',
     component: TaskComponent
   }, {
     path: '',

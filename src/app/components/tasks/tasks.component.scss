@@ -17,6 +17,14 @@
     background-color: rgba(0,0,0,.04);
   }
 
+  md-button-toggle-group {
+    box-shadow: none;
+
+    .mat-button-toggle-checked {
+      color: currentColor;
+    }
+  }
+
   .mat-list-icon.task-status {
     display: flex;
     align-items: center;

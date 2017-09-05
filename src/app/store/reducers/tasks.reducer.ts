@@ -1,14 +1,16 @@
-export function TasksReducer(state: any = [], { type, payload }) {
+import { TasksActions } from '../actions'
+
+export const TasksReducer = (state: any = [], { type, payload }) => {
   switch (type) {
-    case 'ADD_TASKS':
+    case TasksActions.TASKS_ADD:
       return payload;
-    case 'CREATE_TASK':
+    case TasksActions.TASK_ADD:
       return [...state, payload];
-    case 'UPDATE_TASK':
+    case TasksActions.TASK_UPDATE:
       return state.map(task => {
         return task.token === payload.token ? Object.assign({}, task, payload) : task;
       });
-    case 'DELETE_TASK':
+    case TasksActions.TASK_DELETE:
       return state.filter(task => {
         return task.token !== payload.token;
       });

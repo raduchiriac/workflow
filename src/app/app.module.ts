@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -17,7 +18,7 @@ import { TasksCountComponent } from './components/tasks/tasks-count.component';
 import { TaskComponent } from './components/tasks/task.component';
 import { TaskService } from './_services';
 
-import { TasksReducer } from './_reducers';
+import { TasksReducer } from './store/reducers';
 
 @NgModule({
   declarations: [
