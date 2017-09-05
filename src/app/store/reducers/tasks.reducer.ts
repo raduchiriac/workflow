@@ -1,6 +1,6 @@
 import { TasksActions } from '../actions'
 
-export const TasksReducer = (state: any = [], { type, payload }) => {
+export function TasksReducer (state: any = [], { type, payload }) {
   switch (type) {
     case TasksActions.TASKS_ADD:
       return payload;
