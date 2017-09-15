@@ -36,6 +36,8 @@
     "zone.js": "0.8.17"
   },
   "devDependencies": {
+    "eslint": "4.6.1",
+    "eslint-config-google": "0.9.1",
     "@angular/cli": "1.4.2",
     "@angular/compiler-cli": "4.3.6",
     "@types/jasmine": "2.6.0",
