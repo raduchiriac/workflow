@@ -4,10 +4,16 @@ import { TaskComponent } from './components/tasks/task.component';
 import { PageNotFoundComponent } from './core/404/page-not-found.component';
 
 export const AppRoutes: Routes = [{
+    path: 'triggers',
+    component: TasksComponent,
+    data: {
+      title: `Triggers' List`
+    }
+  }, {
     path: 'tasks',
     component: TasksComponent,
     data: {
-      title: 'Tasks List'
+      title: `Tasks' List`
     }
   }, {
     path: 'task/:token',
