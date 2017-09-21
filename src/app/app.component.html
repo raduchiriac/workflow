@@ -1,7 +1,71 @@
 <app-loader></app-loader>
 
-<md-toolbar class="mat-elevation-z6" color="accent">
-  Workflow API
-</md-toolbar>
-
-<router-outlet></router-outlet>
+<clr-main-container class="main-container">
+  <clr-alert [clrAlertType]="'alert-danger'" [clrAlertAppLevel]="true">
+    <clr-alert-item>
+      <span class="alert-text">
+        Please check your internet connection
+      </span>
+      <div class="alert-actions">
+        <button class="btn alert-action">Upgrade</button>
+      </div>
+    </clr-alert-item>
+  </clr-alert>
+  <clr-header class="header header-6">
+    <div class="branding">
+      <a href="/" class="nav-link">
+        <clr-icon shape="cog"></clr-icon>
+        <span class="title">Workflow API</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a routerLink="/tasks" [routerLinkActive]="'active'" class="nav-link"><span class="nav-text">TASKS</span></a>
+      <a routerLink="/triggers" [routerLinkActive]="'active'" class="nav-link"><span class="nav-text">TRIGGERS</span></a>
+    </div>
+  </clr-header>
+  <nav class="subnav" hidden>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sub Link 1</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Sub Link 2</a>
+        </li>
+    </ul>
+  </nav>
+  <div class="content-container">
+      <div class="content-area">
+        <router-outlet></router-outlet>
+      </div>
+      <nav class="sidenav" hidden>
+        <section class="sidenav-content">
+          <a href="#" class="nav-link active">
+            Nav Element 1
+          </a>
+          <a href="#" class="nav-link">
+            Nav Element 2
+          </a>
+          <section class="nav-group collapsible">
+            <input id="tabexample1" type="checkbox">
+            <label for="tabexample1">Collapsible Nav Element</label>
+            <ul class="nav-list">
+              <li><a class="nav-link">Link 1</a></li>
+              <li><a class="nav-link">Link 2</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <input id="tabexample2" type="checkbox">
+            <label for="tabexample2">Default Nav Element</label>
+            <ul class="nav-list">
+              <li><a class="nav-link">Link 1</a></li>
+              <li><a class="nav-link">Link 2</a></li>
+              <li><a class="nav-link active">Link 3</a></li>
+              <li><a class="nav-link">Link 4</a></li>
+              <li><a class="nav-link">Link 5</a></li>
+              <li><a class="nav-link">Link 6</a></li>
+            </ul>
+          </section>
+        </section>
+      </nav>
+  </div>
+</clr-main-container>

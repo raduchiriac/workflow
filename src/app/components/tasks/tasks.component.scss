@@ -1,44 +1,6 @@
-.tasks-count {
-  position: absolute;
-  border-radius: 50%;
-  background: #EC1414;
-  width: 20px;
-  height: 20px;
-  font-size: 10px;
-  line-height: 20px;
-  color: white;
-}
-
 .task {
-  display: flex;
-  align-items: center;
-
   &:hover {
     background-color: rgba(0,0,0,.04);
-  }
-
-  md-button-toggle-group {
-    box-shadow: none;
-
-    .mat-button-toggle-checked {
-      color: currentColor;
-    }
-  }
-
-  .mat-list-icon.task-status {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-      cursor: default;
-    }
-    &.online {
-      color: #33DB33;
-    }
-  }
-
-  .task-title {
-    flex-grow: 1
   }
 }
 

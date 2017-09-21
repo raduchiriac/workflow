@@ -1,44 +1,22 @@
-<md-tab-group>
-    <md-tab label="JOBS">
-      <md-card>
+<button class="btn btn-primary" (click)="addJob()">
+  <span>ADD JOB</span>
+</button>
 
-        <button md-raised-button (click)="addJob()">
-          <span>ADD JOB</span>
-        </button>
+<button class="btn btn-primary" (click)="loadNew()">
+  <span>GET LATEST</span>
+</button>
+<app-tasks-count></app-tasks-count>
 
-        <button md-raised-button (click)="loadNew()">
-          <span>GET LATEST</span>
-          <app-tasks-count></app-tasks-count>
-        </button>
+<div>
+  <div *ngFor="let task of (tasks | async) let idx = index" class="row task">
+    <a routerLink="/task/{{task.token}}">GO</a>
 
-        <md-list>
-          <md-list-item *ngFor="let task of (tasks | async)" class="task">
-            <a md-button routerLink="/task/{{task.token}}"><md-icon class="md-24">settings</md-icon></a>
+    <div class="toggle-switch">
+      <input type="checkbox" id="toggle_{{idx}}" checked>
+      <label for="toggle_{{idx}}"></label>
+    </div>
 
-            <md-button-toggle-group #group="mdButtonToggleGroup">
-              <md-button-toggle value="done" checked="checked">
-                <md-icon>done</md-icon>
-              </md-button-toggle>
-              <md-button-toggle md-button color="primary">
-                <md-icon>autorenew</md-icon>
-              </md-button-toggle>
-              <md-button-toggle value="settings_power">
-                <md-icon>settings_power</md-icon>
-              </md-button-toggle>
-            </md-button-toggle-group>
-
-            <md-icon md-list-icon aria-hidden="true" mdTooltip="online" class="task-status online">lens<span class="cdk-visually-hidden">online</span></md-icon>
-            <p mdLine class="task-title">{{task.name}}</p>
-            <p mdLine class="task-time">02/02/1900</p>
-          </md-list-item>
-        </md-list>
-
-      </md-card>
-    </md-tab>
-
-    <md-tab label="TRIGGERS">
-      <button md-raised-button (click)="addTrigger()">
-        <span>ADD TRIGGER</span>
-      </button>
-    </md-tab>
-  </md-tab-group>
+    <p class="p5">{{task.name}}</p>
+    <p class="p6">02/02/1900</p>
+  </div>
+</div>

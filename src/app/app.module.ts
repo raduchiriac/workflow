@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { MaterialModule } from '@angular/material';
+import { ClarityModule } from "clarity-angular";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
@@ -14,25 +14,28 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
 import { TasksComponent } from './components/tasks/tasks.component';
+import { TriggersComponent } from './components/triggers/triggers.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
 import { TaskComponent } from './components/tasks/task.component';
 import { TaskService } from './_services';
 
 import { TasksReducer } from './store/reducers';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
     TasksCountComponent,
-    TaskComponent
+    TaskComponent,
+    TriggersComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    ClarityModule.forRoot(),
     CoreModule,
     RouterModule.forRoot(
       AppRoutes
