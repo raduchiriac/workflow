@@ -1,56 +1,18 @@
-const express = require('express');
 const socketio = require('socket.io');
 const _ = require('lodash');
 const uuid = require('uuid');
 const actions = require('./actions');
 
-const port = process.env.PORT || 4201;
-const env = process.env.NODE_ENV || "development";
+let db = require('./db').mock;
+const server = require('./server')(db);
 
-const app = express();
-
-app.set('port', port);
-app.set('env', env);
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
-const router = express.Router(); // get an instance of the express Router
-
-
-router.get('/', (req, res) => {
-  res.json({
-    health: 200,
-    db
-  });
-});
-
-
-app.use('/', router);
-
-const server = app.listen(app.get('port'), () => {
-  console.log('SocketIO server listening on port ' + app.get('port'));
-});
-
-const io = socketio(server, {
-  'origins': '*:*'
-});
-
-const db = {
-  posts: {},
-  notes: {}
-};
-
+//Actions
 const createNote = (newNote) => {
   newNote.id = uuid.v4();
   if (!newNote.body) newNote.body = '';
   db.notes[newNote.id] = newNote;
   return db.notes[newNote.id];
 };
-
 
 const updateNote = (noteData) => {
   const note = db.notes[noteData.id];
@@ -69,9 +31,13 @@ const deleteNote = (id) => {
 
 createNote({id: 1, body: 'First note'});
 
+//IO
+const io = socketio(server, {
+  'origins': '*:*'
+});
 io.on('connection', (client) => {
 
-  console.log("client connected...");
+  // console.log("client connected...", client.id);
 
   client.on("join", (data) => {
     console.log(data);

@@ -1,43 +1,42 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
-import { Task } from '../../_models/task';
+import { Trigger } from '../../_models';
 
-import { TaskService } from '../../_services';
+import { TriggerService } from '../../_services';
 
 @Component({
   selector: 'app-triggers',
   templateUrl: 'triggers.component.html',
-  // styleUrls: ['tasks.component.scss'],
+  styleUrls: ['triggers.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
 export class TriggersComponent implements OnInit, OnDestroy {
 
-  // Redux based variables
-  // tasks: Observable<Array<Task>>;
+  triggers: Observable<Array<Trigger>>;
 
-  // private subscription: Subscription;
+  private subscription: Subscription;
 
   constructor(
-    private taskService: TaskService
+    private triggerService: TriggerService
   ) {
-    // this.tasks = taskService.tasks;
+    this.triggers = triggerService.triggers;
   }
 
   ngOnInit() {
-    // this.subscription = this.tasks
-    //   .subscribe(tasks => {}, error => {
-    //     // Do something with error
-    //   });
+    this.subscription = this.triggers
+      .subscribe(triggers => {}, error => {
+        // Do something with error
+      });
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
-  loadNew() {
-    this.taskService.loadTasks();
+  load() {
+    this.triggerService.load();
   }
 
 }

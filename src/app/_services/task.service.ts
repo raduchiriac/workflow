@@ -18,7 +18,7 @@ export class TaskService {
 
     constructor(
       private http: HttpService,
-      private store: Store <AppStore>
+      private store: Store<AppStore>
     ) {
       this.tasks = store.select(store => store.tasks);
     }

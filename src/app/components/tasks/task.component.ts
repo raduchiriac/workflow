@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Task } from '../../_models/task';
+import { Task } from '../../_models';
 import { TaskService } from '../../_services';
 
 @Component({

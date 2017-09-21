@@ -13,17 +13,21 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
+import { Pipes } from './_pipes';
+
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
 import { TaskComponent } from './components/tasks/task.component';
-import { TaskService } from './_services';
 
-import { TasksReducer } from './store/reducers';
+import { TaskService, TriggerService, SocketService } from './_services';
+
+import { TasksReducer, TriggersReducer, SocketReducer } from './store/reducers';
 
 
 @NgModule({
   declarations: [
+    Pipes,
     AppComponent,
     TasksComponent,
     TasksCountComponent,
@@ -41,12 +45,16 @@ import { TasksReducer } from './store/reducers';
       AppRoutes
     ),
     StoreModule.forRoot({
-      tasks: TasksReducer
+      tasks: TasksReducer,
+      triggers: TriggersReducer,
+      socket: SocketReducer
     }),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [
-    TaskService
+    TaskService,
+    TriggerService,
+    SocketService,
   ],
   bootstrap: [AppComponent]
 })

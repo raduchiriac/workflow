@@ -1,1 +1,13 @@
-TRIGGERS
+<button class="btn btn-primary" (click)="load()">
+  REFRESH
+</button>
+
+<div class="triggers-component">
+  <div *ngFor="let trigger of (triggers | async) let idx = index" class="row trigger">
+    <div class="col-lg-12">
+      <p class="p5">{{trigger.key}}</p>
+      <p class="p6">{{trigger.cronExpression | cron2human}}</p>
+      <p>{{trigger.startTime | date:"dd MMM, yyyy HH:mm"}}</p>
+    </div>
+  </div>
+</div>
