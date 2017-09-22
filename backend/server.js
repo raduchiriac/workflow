@@ -26,11 +26,10 @@ module.exports = (db) => {
     });
   });
 
-
   app.use('/', router);
 
   const server = app.listen(app.get('port'), () => {
-    console.log('\x1b[33m%s\x1b[0m', 'SocketIO server is listening on port ' + app.get('port'));
+    console.log('\x1b[33m%s\x1b[0m', `➝ Workflow API's server is listening on port ${app.get('port')}`);
   });
 
   return server;

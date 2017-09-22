@@ -1,5 +1,4 @@
-exports.mock = {
-  notes: {},
+exports.db = {
   jobs: [{
     'key': 'workflow:scheduleUndeliveredMessagesJob',
     'className': 'eu.europa.ec.digit.wf.scheduler.services.engine.invokers.WFSEJB3InvokerJob',
