@@ -19,6 +19,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
 import { TaskComponent } from './components/tasks/task.component';
+import { TriggerPreviewModal } from './components/triggers/modals/trigger-preview.modal';
 
 import { TaskService, TriggerService, SocketService } from './_services';
 
@@ -32,7 +33,8 @@ import { TasksReducer, TriggersReducer, SocketReducer } from './store/reducers';
     TasksComponent,
     TasksCountComponent,
     TaskComponent,
-    TriggersComponent
+    TriggersComponent,
+    TriggerPreviewModal,
   ],
   imports: [
     BrowserModule,

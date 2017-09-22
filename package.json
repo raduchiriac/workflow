@@ -6,6 +6,7 @@
   "scripts": {
     "build": "ng build --prod",
     "e2e": "protractor",
+    "hmr": "ng serve --open --hmr -e=hmr",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "start": "ng serve --open",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@angular/cli": "1.4.3",
     "@angular/compiler-cli": "4.4.3",
+    "@angularclass/hmr": "2.1.3",
     "@types/jasmine": "2.6.0",
     "@types/node": "8.0.29",
     "codelyzer": "3.2.0",

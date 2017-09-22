@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  hmr: false,
+  hmr: true,
   backend: {
     url: 'http://localhost:4201',
     config: {
