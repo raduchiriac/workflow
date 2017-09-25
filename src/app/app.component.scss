@@ -1,0 +1,12 @@
+body {
+  clr-main-container {
+    transition: 0.15s filter linear;
+  }
+  &.no-scrolling {
+    clr-main-container {
+      filter: blur(2px);
+    }
+  }
+}
+
+

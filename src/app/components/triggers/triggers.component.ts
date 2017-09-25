@@ -1,8 +1,12 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import { AppStore } from '../../app.store';
 
 import { Trigger } from '../../_models';
-
+import * as ModalsActions from '../../store/actions/modals.actions';
+import { TriggersActions } from '../../store/actions';
 import { TriggerService } from '../../_services';
 
 @Component({
@@ -11,7 +15,7 @@ import { TriggerService } from '../../_services';
   styleUrls: ['triggers.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-
+@Injectable()
 export class TriggersComponent implements OnInit, OnDestroy {
 
   triggers: Observable<Array<Trigger>>;
@@ -19,7 +23,8 @@ export class TriggersComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private triggerService: TriggerService
+    private store: Store<AppStore>,
+    private triggerService: TriggerService,
   ) {
     this.triggers = triggerService.triggers;
   }
@@ -35,8 +40,20 @@ export class TriggersComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  addNew() {
+    this.store.dispatch({type: ModalsActions.MODALS_TRIGGER_ADD_OPEN});
+  }
+
   load() {
     this.triggerService.load();
+  }
+
+  export () {
+    // this.store.dispatch(new layout.CloseSidenavAction());
+  }
+
+  preview(id) {
+    // this.store.dispatch({type: TriggersActions.TRIGGER_PREVIEW, payload: id});
   }
 
 }

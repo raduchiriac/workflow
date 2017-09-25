@@ -1,13 +1,18 @@
-<button class="btn btn-primary" (click)="load()">
-  REFRESH
-</button>
+<clr-button-group class="btn-group btn-primary">
+  <clr-button class="btn" (click)="addNew()">ADD NEW TRIGGER</clr-button>
+  <clr-button class="btn" (click)="load()">LOAD</clr-button>
+  <clr-button [clrInMenu]="true" (click)="export()">Export</clr-button>
+</clr-button-group>
 
-<div class="triggers-component">
-  <div *ngFor="let trigger of (triggers | async) let idx = index" class="row trigger">
-    <div class="col-lg-12">
-      <p class="p5">{{trigger.key}}</p>
-      <p class="p6">{{trigger.cronExpression | cron2human}}</p>
-      <p>{{trigger.startTime | date:"dd MMM, yyyy HH:mm"}}</p>
+<div id="triggers-component">
+  <div *ngFor="let trigger of (triggers | async) let idx = index" class="row">
+    <div class="col-lg-12 trigger" (click)="preview(trigger.key)">
+      <div><span class="trigger-prop">Key</span> {{trigger.key}}</div>
+      <div><span class="trigger-prop">Class Name</span>  {{trigger.className}}</div>
+      <div><span class="trigger-prop">Description</span> {{trigger.description}}</div>
+      <div><span class="trigger-prop">Cron</span> {{trigger.cronExpression | cron2human}}</div>
+      <div><span class="trigger-prop">Start Time</span> {{trigger.startTime | date:"dd MMM, yyyy HH:mm"}}</div>
     </div>
   </div>
 </div>
+

@@ -40,4 +40,8 @@ export class TasksComponent implements OnInit, OnDestroy {
     this.taskService.loadTasks();
   }
 
+  addJob() {
+
+  }
+
 }

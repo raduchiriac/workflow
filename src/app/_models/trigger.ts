@@ -1,4 +1,8 @@
 export interface Trigger {
-  name: string;
-  jobKey: string;
+  key: String,
+  className: String,
+  jobKey: String,
+  description: String,
+  cronExpression: String,
+  startTime: String,
 }

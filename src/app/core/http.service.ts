@@ -64,11 +64,11 @@ export class HttpService extends Http {
   }
 
   private onSuccess(res: Response): void {
-    console.log('Request successful');
+    // console.log('Request successful');
   }
 
   private onError(res: Response): void {
-    console.log('Error, status code: ' + res.status);
+    // console.log('Error, status code: ' + res.status);
   }
 
   private onEnd(): void {

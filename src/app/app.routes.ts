@@ -22,7 +22,7 @@ export const AppRoutes: Routes = [{
   }, {
     // Redirect
     path: '',
-    redirectTo: '/tasks',
+    redirectTo: '/triggers',
     pathMatch: 'full'
   }, {
     path: '**',

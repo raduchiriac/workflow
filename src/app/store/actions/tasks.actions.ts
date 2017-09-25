@@ -1,7 +1,7 @@
 export class TasksActions {
-  static TASK_ADD = 'TASK_ADD';
-  static TASK_DELETE = 'TASK_DELETE';
-  static TASK_UPDATE = 'TASK_UPDATE';
+  static TASK_ADD = '[Task] Add';
+  static TASK_DELETE = '[Task] Delete';
+  static TASK_UPDATE = '[Task] Update';
   //
-  static TASKS_ADD = 'TASKS_ADD';
+  static TASKS_ADD = '[Tasks] Add';
 }

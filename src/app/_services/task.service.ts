@@ -40,9 +40,6 @@ export class TaskService {
       });
 
     getTask = (token) => {
-      console.log('====================================');
-      console.log(this.store.select(store => store.tasks));
-      console.log('====================================');
       return {name: 'TODO'}
     }
 }

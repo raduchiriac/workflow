@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { environment } from '../../environments/environment';
 
 import { Trigger } from '../_models';
 import { TriggersActions } from '../store/actions';
@@ -14,7 +15,7 @@ import { AppStore } from '../app.store';
 export class TriggerService {
 
     triggers: Observable <Array<Trigger>> ;
-    URL = 'http://localhost:4201';
+    URL = environment.backend.url;
 
     constructor(
       private http: HttpService,

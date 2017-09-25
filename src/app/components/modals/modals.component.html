@@ -1,0 +1,38 @@
+<div id="modals-component">
+  <clr-modal [(clrModalOpen)]="triggerAddNew$" [clrModalSize]="'lg'">
+    <h3 class="modal-title">Add New Trigger</h3>
+    <div class="modal-body">
+      <form>
+        <section class="form-block">
+          <div class="form-group">
+            <label for="aForm_1">This is a form field</label>
+            <input type="text" id="aForm_1" placeholder="Enter value here" size="45">
+          </div>
+          <div class="form-group">
+            <label for="aForm_2">Another form field</label>
+            <input type="password" id="aForm_2" placeholder="Enter another value here" size="35">
+          </div>
+          <div class="form-group">
+            <label for="aForm_3">Job Key</label>
+            <div class="select">
+              <select id="aForm_3">
+                <option>workflow:scheduleUndeliveredMessagesJob</option>
+                <option>workflow:scheduleMessagesJob</option>
+                <option>workflow:scheduleRustJob</option>
+                <option>workflow:scheduleResponseMessagesJob</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="aForm_4">Description</label>
+            <textarea id="aForm_4" rows="4"></textarea>
+          </div>
+        </section>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="closeModal('triggerAddNew$')">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="closeModal('triggerAddNew$')">ADD</button>
+    </div>
+  </clr-modal>
+</div>

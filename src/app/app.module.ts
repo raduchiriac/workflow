@@ -15,6 +15,7 @@ import { AppRoutes } from './app.routes';
 
 import { Pipes } from './_pipes';
 
+import { ModalsComponent } from './components/modals/modals.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
 import { TasksCountComponent } from './components/tasks/tasks-count.component';
@@ -23,13 +24,13 @@ import { TriggerPreviewModal } from './components/triggers/modals/trigger-previe
 
 import { TaskService, TriggerService, SocketService } from './_services';
 
-import { TasksReducer, TriggersReducer, SocketReducer } from './store/reducers';
-
+import { TasksReducer, TriggersReducer, SocketReducer, ModalsReducer } from './store/reducers';
 
 @NgModule({
   declarations: [
     Pipes,
     AppComponent,
+    ModalsComponent,
     TasksComponent,
     TasksCountComponent,
     TaskComponent,
