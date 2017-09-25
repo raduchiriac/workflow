@@ -2,8 +2,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { AppStore } from '../../app.store';
-import { getTriggerAdd } from '../../store/reducers';
+import { AppState } from '../../app.store';
 import * as ModalsActions from '../../store/actions/modals.actions';
 
 @Component({
@@ -18,7 +17,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
   triggerAddNew$: any;
 
   constructor(
-    private store: Store<AppStore>,
+    private store: Store<AppState>,
     // private triggerService: TriggerService,
   ) {
     // this.triggers = triggerService.triggers;

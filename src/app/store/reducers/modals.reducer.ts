@@ -1,6 +1,6 @@
 import * as ModalsActions from '../actions/modals.actions';
 
-interface State {
+export interface State {
   triggerAdd: boolean;
 }
 
@@ -8,7 +8,7 @@ const initialState: State = {
   triggerAdd: false,
 };
 
-export function ModalsReducer(state = initialState, { type, payload }) {
+export function reducer(state = initialState, { type, payload }): State {
   switch (type) {
     case ModalsActions.MODALS_TRIGGER_ADD_CLOSE : {
       return Object.assign({...state}, {
@@ -26,4 +26,3 @@ export function ModalsReducer(state = initialState, { type, payload }) {
 }
 
 export const getTriggerAdd = (state: State) => state.triggerAdd;
-

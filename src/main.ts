@@ -17,7 +17,7 @@ if (environment.hmr) {
   if (module['hot']) {
     hmrBootstrap(module, bootstrap);
   } else {
-    console.error('> HMR will not enabled for webpack-dev-server');
+    console.error('> HMR will not be enabled for webpack-dev-server');
   }
 } else {
   bootstrap();

@@ -9,17 +9,18 @@ import { TriggersActions } from '../store/actions';
 
 import { HttpService } from '../core/http.service';
 
-import { AppStore } from '../app.store';
+import { AppState } from '../app.store';
 
 @Injectable()
 export class TriggerService {
 
-    triggers: Observable <Array<Trigger>> ;
-    URL = environment.backend.url;
+  triggers: any;
+  // triggers: Observable <Array<Trigger>>;
+  URL = environment.backend.url;
 
     constructor(
       private http: HttpService,
-      private store: Store<AppStore>
+      private store: Store<AppState>
     ) {
       this.triggers = store.select(store => store.triggers);
     }

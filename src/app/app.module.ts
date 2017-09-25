@@ -15,6 +15,7 @@ import { AppRoutes } from './app.routes';
 
 import { Pipes } from './_pipes';
 
+// TODO: Move to AppComponent
 import { ModalsComponent } from './components/modals/modals.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
@@ -24,12 +25,13 @@ import { TriggerPreviewModal } from './components/triggers/modals/trigger-previe
 
 import { TaskService, TriggerService, SocketService } from './_services';
 
-import { TasksReducer, TriggersReducer, SocketReducer, ModalsReducer } from './store/reducers';
+import { AppStore } from './app.store'
 
 @NgModule({
   declarations: [
     Pipes,
     AppComponent,
+    // TODO: Move to AppComponent
     ModalsComponent,
     TasksComponent,
     TasksCountComponent,
@@ -42,16 +44,12 @@ import { TasksReducer, TriggersReducer, SocketReducer, ModalsReducer } from './s
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    ClarityModule.forRoot(),
     CoreModule,
+    ClarityModule.forRoot(),
     RouterModule.forRoot(
       AppRoutes
     ),
-    StoreModule.forRoot({
-      tasks: TasksReducer,
-      triggers: TriggersReducer,
-      socket: SocketReducer
-    }),
+    StoreModule.forRoot(AppStore),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [

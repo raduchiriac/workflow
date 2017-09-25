@@ -4,7 +4,7 @@ export interface State {
   socketConnected: boolean;
 }
 
-export function SocketReducer(state, { type, payload }): State {
+export function reducer(state, { type, payload }): State {
   switch (type) {
     case SocketActions.SET_SOCKET_CONNECTED_STATUS : {
       return {

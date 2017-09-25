@@ -1,6 +1,11 @@
-import { TasksActions } from '../actions'
+import { TasksActions } from '../actions';
+import { Task } from '../../_models';
 
-export function TasksReducer (state: any = [], { type, payload }) {
+export interface State {
+  tasks: Task[];
+}
+
+export function reducer(state: any = [], { type, payload }) {
   switch (type) {
     case TasksActions.TASKS_ADD:
       return payload;

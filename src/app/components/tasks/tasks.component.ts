@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
 import { Task } from '../../_models/task';
-
 import { TaskService } from '../../_services';
 
 @Component({

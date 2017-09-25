@@ -8,17 +8,17 @@ import { TasksActions } from '../store/actions';
 
 import { HttpService } from '../core/http.service';
 
-import { AppStore } from '../app.store';
+import { AppState } from '../app.store';
 
 @Injectable()
 export class TaskService {
 
-    tasks: Observable <Array<Task>> ;
+    tasks: any;
     tasksURL = 'https://dingo-api.codingo.me/campaign';
 
     constructor(
       private http: HttpService,
-      private store: Store<AppStore>
+      private store: Store<AppState>
     ) {
       this.tasks = store.select(store => store.tasks);
     }

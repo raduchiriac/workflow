@@ -1,6 +1,11 @@
 import { TriggersActions } from '../actions'
+import { Trigger } from '../../_models';
 
-export function TriggersReducer (state: any = [], { type, payload }) {
+export interface State {
+  tasks: Trigger[];
+}
+
+export function reducer(state: any = [], { type, payload }) {
   switch (type) {
     case TriggersActions.TRIGGERS_ADD:
       return payload;

@@ -2,11 +2,10 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { AppStore } from '../../app.store';
+import { AppState } from '../../app.store';
 
 import { Trigger } from '../../_models';
 import * as ModalsActions from '../../store/actions/modals.actions';
-import { TriggersActions } from '../../store/actions';
 import { TriggerService } from '../../_services';
 
 @Component({
@@ -23,7 +22,7 @@ export class TriggersComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private store: Store<AppStore>,
+    private store: Store<AppState>,
     private triggerService: TriggerService,
   ) {
     this.triggers = triggerService.triggers;
@@ -41,7 +40,7 @@ export class TriggersComponent implements OnInit, OnDestroy {
   }
 
   addNew() {
-    this.store.dispatch({type: ModalsActions.MODALS_TRIGGER_ADD_OPEN});
+    this.store.dispatch(new ModalsActions.OpenTriggerAddAction());
   }
 
   load() {
@@ -49,11 +48,10 @@ export class TriggersComponent implements OnInit, OnDestroy {
   }
 
   export () {
-    // this.store.dispatch(new layout.CloseSidenavAction());
+    this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
   }
 
   preview(id) {
-    // this.store.dispatch({type: TriggersActions.TRIGGER_PREVIEW, payload: id});
   }
 
 }

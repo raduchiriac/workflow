@@ -1,9 +1,10 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppStore } from './app.store';
+import { AppState } from './app.store';
 import { SocketService } from './_services';
 import { Observable } from 'rxjs/Observable';
-import { getSocketStatus } from './store/reducers';
+
+// import { getSocketStatus } from './store/reducers';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { getSocketStatus } from './store/reducers';
 export class AppComponent implements OnInit {
     socketStatus$: Observable<string>;
 
-    constructor(private socket: SocketService, private store: Store<AppStore>) {}
+    constructor(private socket: SocketService, private store: Store<AppState>) {}
 
     ngOnInit() {
       // this.socketStatus$ = this.store
