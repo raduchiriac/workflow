@@ -5,7 +5,8 @@ import { Store } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 
 import { Task } from '../_models';
-import { TasksActions } from '../store/actions';
+import * as TasksActions from '../store/actions/tasks.actions';
+import { State } from '../store/reducers/tasks.reducer';
 
 import { HttpService } from '../core/http.service';
 
@@ -14,13 +15,12 @@ import { AppState } from '../app.store';
 @Injectable()
 export class TaskService {
 
-  // tasks: Observable <Array<Task>>;
-  tasks: any;
+  tasks: Observable <Array<Task>>;
   URL = environment.backend.url;
 
   constructor(
     private http: HttpService,
-    private store: Store<AppState>
+    private store: Store<State>
   ) {
     this.tasks = store.select(store => store.tasks);
   }
@@ -31,17 +31,8 @@ export class TaskService {
       const body = res.json();
       return body.db.jobs || {};
     })
-    .map((payload: Task[]) => {
-      return {
-        type: TasksActions.TASKS_ADD,
-        payload
-      };
-    })
+    .map((payload: Task[]) => new TasksActions.TasksAdd(payload))
     .subscribe((action) => {
       this.store.dispatch(action);
     });
-
-  getTask = (token) => {
-    return {name: 'TODO'}
-  }
 }

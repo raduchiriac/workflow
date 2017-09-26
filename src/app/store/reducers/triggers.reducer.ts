@@ -2,7 +2,8 @@ import { TriggersActions } from '../actions'
 import { Trigger } from '../../_models';
 
 export interface State {
-  tasks: Trigger[];
+  currentTrigger: Trigger;
+  triggers: Trigger[];
 }
 
 export function reducer(state: any = [], { type, payload }) {

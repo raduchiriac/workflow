@@ -35,8 +35,8 @@ export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState
     // Hide using this regex in Chrome's filter zone
     //
     console.groupCollapsed('>> LOGGER !<<');
-    console.log(`state ${state}`);
-    console.log(`action ${action}`);
+    console.log(`state `, state);
+    console.log(`action`, action);
     console.groupEnd();
 
     return reducer(state, action);

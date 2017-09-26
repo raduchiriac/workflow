@@ -27,7 +27,7 @@ export class TaskComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
-      this.task = this.taskService.getTask(params['token']);
+      // this.task = this.taskService.getTask(params['token']);
    });
   }
 
