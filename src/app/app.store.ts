@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import { compose } from "@ngrx/core";
 import {
   combineReducers,
   ActionReducer,
