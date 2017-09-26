@@ -49,7 +49,8 @@ export class TriggersComponent implements OnInit, OnDestroy {
 
   export () { }
 
-  preview(id) {
+  preview(id: string) {
+    this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
   }
 
 }

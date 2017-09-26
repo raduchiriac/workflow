@@ -32,8 +32,12 @@ export const reducers: ActionReducerMap<AppState> = {
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return function(state: AppState, action: any): AppState {
-    console.log('state', state);
-    console.log('action', action);
+    // Hide using this regex in Chrome's filter zone
+    //
+    console.groupCollapsed('>> LOGGER !<<');
+    console.log(`state ${state}`);
+    console.log(`action ${action}`);
+    console.groupEnd();
 
     return reducer(state, action);
   };
@@ -52,6 +56,7 @@ export function AppStore(state: any, action: any) {
 // Selectors
 const getModalsState = createFeatureSelector<ModalsReducer.State>('modals');
 export const getTriggerAdd = createSelector(getModalsState, ModalsReducer.getTriggerAdd);
+export const getTriggerPreview = createSelector(getModalsState, ModalsReducer.getTriggerPreview);
 
 const getSocketState = createFeatureSelector<SocketReducer.State>('socket');
 export const getSocketStatus = createSelector(getSocketState, SocketReducer.getSocketStatus);

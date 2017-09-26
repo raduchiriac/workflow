@@ -7,13 +7,10 @@
 <div>
   <div *ngFor="let task of (tasks | async) let idx = index" class="row task">
     <a routerLink="/task/{{task.token}}">GO</a>
-
+    <div>{{task.key}}</div>
     <div class="toggle-switch">
       <input type="checkbox" id="toggle_{{idx}}" checked>
       <label for="toggle_{{idx}}"></label>
     </div>
-
-    <p class="p5">{{task.name}}</p>
-    <p class="p6">02/02/1900</p>
   </div>
 </div>

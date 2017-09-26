@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { environment } from '../../environments/environment';
 
 import { Task } from '../_models';
 import { TasksActions } from '../store/actions';
@@ -15,7 +16,7 @@ export class TaskService {
 
   // tasks: Observable <Array<Task>>;
   tasks: any;
-  tasksURL = 'https://dingo-api.codingo.me/campaign';
+  URL = environment.backend.url;
 
   constructor(
     private http: HttpService,
@@ -25,10 +26,10 @@ export class TaskService {
   }
 
   loadTasks = () =>
-    this.http.get(this.tasksURL)
+    this.http.get(this.URL)
     .map((res: Response) => {
       const body = res.json();
-      return body.data || {};
+      return body.db.jobs || {};
     })
     .map((payload: Task[]) => {
       return {
