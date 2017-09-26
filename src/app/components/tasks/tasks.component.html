@@ -1,10 +1,7 @@
-<button class="btn btn-primary" (click)="addJob()">
-  <span>ADD JOB</span>
-</button>
-
-<button class="btn btn-primary" (click)="loadNew()">
-  GET LATEST
-</button>
+<clr-button-group class="btn-group btn-primary">
+  <clr-button class="btn" (click)="add()">ADD JOB</clr-button>
+  <clr-button class="btn" (click)="loadNew()">GET LATEST</clr-button>
+</clr-button-group>
 <app-tasks-count></app-tasks-count>
 
 <div>

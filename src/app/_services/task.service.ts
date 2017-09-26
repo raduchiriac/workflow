@@ -13,33 +13,34 @@ import { AppState } from '../app.store';
 @Injectable()
 export class TaskService {
 
-    tasks: any;
-    tasksURL = 'https://dingo-api.codingo.me/campaign';
+  // tasks: Observable <Array<Task>>;
+  tasks: any;
+  tasksURL = 'https://dingo-api.codingo.me/campaign';
 
-    constructor(
-      private http: HttpService,
-      private store: Store<AppState>
-    ) {
-      this.tasks = store.select(store => store.tasks);
-    }
+  constructor(
+    private http: HttpService,
+    private store: Store<AppState>
+  ) {
+    this.tasks = store.select(store => store.tasks);
+  }
 
-    loadTasks = () =>
-      this.http.get(this.tasksURL)
-      .map((res: Response) => {
-        const body = res.json();
-        return body.data || {};
-      })
-      .map((payload: Task[]) => {
-        return {
-          type: TasksActions.TASKS_ADD,
-          payload
-        };
-      })
-      .subscribe((action) => {
-        this.store.dispatch(action);
-      });
+  loadTasks = () =>
+    this.http.get(this.tasksURL)
+    .map((res: Response) => {
+      const body = res.json();
+      return body.data || {};
+    })
+    .map((payload: Task[]) => {
+      return {
+        type: TasksActions.TASKS_ADD,
+        payload
+      };
+    })
+    .subscribe((action) => {
+      this.store.dispatch(action);
+    });
 
-    getTask = (token) => {
-      return {name: 'TODO'}
-    }
+  getTask = (token) => {
+    return {name: 'TODO'}
+  }
 }

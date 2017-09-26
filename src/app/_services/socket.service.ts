@@ -32,7 +32,6 @@ export class SocketService {
   }
 
   emit(event: string, data?: any) {
-
     console.group();
       console.log('----- SOCKET OUTGOING -----');
       console.log('Action: ', event);

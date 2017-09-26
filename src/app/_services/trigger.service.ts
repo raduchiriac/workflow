@@ -14,30 +14,30 @@ import { AppState } from '../app.store';
 @Injectable()
 export class TriggerService {
 
-  triggers: any;
   // triggers: Observable <Array<Trigger>>;
+  triggers: any;
   URL = environment.backend.url;
 
-    constructor(
-      private http: HttpService,
-      private store: Store<AppState>
-    ) {
-      this.triggers = store.select(store => store.triggers);
-    }
+  constructor(
+    private http: HttpService,
+    private store: Store<AppState>
+  ) {
+    this.triggers = store.select(store => store.triggers);
+  }
 
-    load = () =>
-      this.http.get(this.URL)
-      .map((res: Response) => {
-        const body = res.json();
-        return body.db.triggers || {};
-      })
-      .map((payload: Trigger[]) => {
-        return {
-          type: TriggersActions.TRIGGERS_ADD,
-          payload
-        };
-      })
-      .subscribe((action) => {
-        this.store.dispatch(action);
-      });
+  load = () =>
+    this.http.get(this.URL)
+    .map((res: Response) => {
+      const body = res.json();
+      return body.db.triggers || {};
+    })
+    .map((payload: Trigger[]) => {
+      return {
+        type: TriggersActions.TRIGGERS_ADD,
+        payload
+      };
+    })
+    .subscribe((action) => {
+      this.store.dispatch(action);
+    });
 }

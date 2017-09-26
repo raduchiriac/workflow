@@ -1,5 +1,5 @@
 <div id="modals-component">
-  <clr-modal [(clrModalOpen)]="triggerAddNew$" [clrModalSize]="'lg'">
+  <clr-modal [(clrModalOpen)]="triggerAddNew_open" [clrModalSize]="'lg'" (clrModalOpenChange)="modalStateChange($event, 'triggerAddNew_open')">
     <h3 class="modal-title">Add New Trigger</h3>
     <div class="modal-body">
       <form>
@@ -31,8 +31,8 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="closeModal('triggerAddNew$')">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="closeModal('triggerAddNew$')">ADD</button>
+      <button type="button" class="btn btn-outline" (click)="modalStateChange(false, 'triggerAddNew_open')">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="modalStateChange(false, 'triggerAddNew_open')">ADD</button>
     </div>
   </clr-modal>
 </div>

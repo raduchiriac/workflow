@@ -1,5 +1,5 @@
 export interface Task {
-  //TODO: wrong schema
+  //TODO: fix schema
   name: string;
   token: string;
   totalBanners: number;

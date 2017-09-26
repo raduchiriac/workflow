@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { compose } from "@ngrx/core";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -25,7 +26,7 @@ import { TriggerPreviewModal } from './components/triggers/modals/trigger-previe
 
 import { TaskService, TriggerService, SocketService } from './_services';
 
-import { AppStore } from './app.store'
+import { AppStore, reducers, metaReducers } from './app.store'
 
 @NgModule({
   declarations: [
@@ -46,10 +47,8 @@ import { AppStore } from './app.store'
     HttpModule,
     CoreModule,
     ClarityModule.forRoot(),
-    RouterModule.forRoot(
-      AppRoutes
-    ),
-    StoreModule.forRoot(AppStore),
+    RouterModule.forRoot(AppRoutes),
+    StoreModule.forRoot(reducers, {metaReducers}),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../app.store';
+import * as AppStore from '../../app.store';
 import * as ModalsActions from '../../store/actions/modals.actions';
 
 @Component({
@@ -14,37 +14,30 @@ import * as ModalsActions from '../../store/actions/modals.actions';
 @Injectable()
 export class ModalsComponent implements OnInit, OnDestroy {
 
-  triggerAddNew$: any;
+  triggerAddNew$: Observable<boolean>;
+  triggerAddNew_open: boolean;
 
   constructor(
-    private store: Store<AppState>,
-    // private triggerService: TriggerService,
+    private store: Store<AppStore.AppState>,
   ) {
-    // this.triggers = triggerService.triggers;
-    // this.triggerAddNew$ = this.store.select(fromRoot.getShowSidenav).find(el => {
-    //   console.log(el)
-    //   return el;
-    // });
+    this.triggerAddNew$ = this.store.select(AppStore.getTriggerAdd);
   }
 
   ngOnInit() {
-    // this.subscription = this.triggers
-    //   .subscribe(triggers => {}, error => {
-    //     // Do something with error
-    //   });
+    this.triggerAddNew$.subscribe(res => this.triggerAddNew_open = res);
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
   }
 
-  closeModal(which) {
-    switch(which) {
-      case 'triggerAddNew$':
-        // this.store.dispatch({type: ModalsActions.MODALS_TRIGGER_ADD, payload: false});
-        break;
-      default:
-        break;
+  modalStateChange(open, who) {
+    if(!open)
+      switch(who) {
+        case 'triggerAddNew_open':
+          this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
+          break;
+        default:
+          break;
     }
   }
 }

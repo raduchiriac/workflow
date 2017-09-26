@@ -1,4 +1,4 @@
-import { SocketActions } from '../actions';
+import * as SocketActions from '../actions/socket.actions';
 
 export interface State {
   socketConnected: boolean;
@@ -7,10 +7,9 @@ export interface State {
 export function reducer(state, { type, payload }): State {
   switch (type) {
     case SocketActions.SET_SOCKET_CONNECTED_STATUS : {
-      return {
-        ...state,
+      return Object.assign({}, state, {
         socketConnected: payload
-      };
+      });
     }
     default:
       return state;

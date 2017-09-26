@@ -11,10 +11,10 @@ export const AppRoutes: Routes = [{
       title: `Triggers' List`
     }
   }, {
-    path: 'tasks',
+    path: 'jobs',
     component: TasksComponent,
     data: {
-      title: `Tasks' List`
+      title: `Jobs' List`
     }
   }, {
     path: 'task/:token',

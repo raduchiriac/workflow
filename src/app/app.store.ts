@@ -1,26 +1,58 @@
 import { createSelector } from 'reselect';
 import { compose } from "@ngrx/core";
-import { combineReducers, ActionReducer } from "@ngrx/store";
+import {
+  combineReducers,
+  ActionReducer,
+  ActionReducerMap,
+  createFeatureSelector,
+  MetaReducer } from "@ngrx/store";
+
+import * as RouterStore from '@ngrx/router-store';
+import { environment } from '../environments/environment';
+import { storeFreeze } from 'ngrx-store-freeze';
 
 import * as ModalsReducer from "./store/reducers/modals.reducer";
 import * as SocketReducer from "./store/reducers/socket.reducer";
 import * as TasksReducer from "./store/reducers/tasks.reducer";
 import * as TriggersReducer from "./store/reducers/triggers.reducer";
+import * as RouterReducer from "./store/reducers/router.reducer";
 
 export interface AppState {
-  modals: ModalsReducer.State,
-  socket: SocketReducer.State,
+  modals: ModalsReducer.State;
+  socket: SocketReducer.State;
   tasks: TasksReducer.State;
   triggers: TriggersReducer.State;
 }
 
-const metaReducer: ActionReducer<AppState> = combineReducers({
+export const reducers: ActionReducerMap<AppState> = {
   modals: ModalsReducer.reducer,
   socket: SocketReducer.reducer,
   tasks: TasksReducer.reducer,
   triggers: TriggersReducer.reducer,
-});
+}
+
+export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+  return function(state: AppState, action: any): AppState {
+    console.log('state', state);
+    console.log('action', action);
+
+    return reducer(state, action);
+  };
+}
+
+export const metaReducers: MetaReducer<AppState>[] = !environment.production
+  ? [logger, storeFreeze]
+  : [];
+
+const combinedReducers: ActionReducer<AppState> = combineReducers(reducers);
 
 export function AppStore(state: any, action: any) {
-  return metaReducer(state, action);
+  return combinedReducers(state, action);
 }
+
+// Selectors
+const getModalsState = createFeatureSelector<ModalsReducer.State>('modals');
+export const getTriggerAdd = createSelector(getModalsState, ModalsReducer.getTriggerAdd);
+
+const getSocketState = createFeatureSelector<SocketReducer.State>('socket');
+export const getSocketStatus = createSelector(getSocketState, SocketReducer.getSocketStatus);

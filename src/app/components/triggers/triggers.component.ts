@@ -47,9 +47,7 @@ export class TriggersComponent implements OnInit, OnDestroy {
     this.triggerService.load();
   }
 
-  export () {
-    this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
-  }
+  export () { }
 
   preview(id) {
   }
