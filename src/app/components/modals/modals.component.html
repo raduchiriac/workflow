@@ -9,8 +9,8 @@
             <input type="text" id="aForm_1" placeholder="Enter value here" size="45">
           </div>
           <div class="form-group">
-            <label for="aForm_2">Another form field</label>
-            <input type="password" id="aForm_2" placeholder="Enter another value here" size="35">
+            <label for="aForm_2">Class Name</label>
+            <input type="password" id="aForm_2" placeholder="Enter the class name" size="35">
           </div>
           <div class="form-group">
             <label for="aForm_3">Job Key</label>
@@ -36,7 +36,7 @@
     </div>
   </clr-modal>
 
-  <clr-modal [(clrModalOpen)]="triggerPreview_open" id="trigger-preview-modal" [clrModalSkipAnimation]="true" [clrModalSize]="'lg'" (clrModalOpenChange)="modalStateChange($event, 'triggerPreview_open')">
+  <clr-modal [(clrModalOpen)]="triggerPreview_open" id="trigger-preview-modal" [clrModalSkipAnimation]="true" (clrModalOpenChange)="modalStateChange($event, 'triggerPreview_open')">
     <div class="modal-body">
       PREVIEW
     </div>
