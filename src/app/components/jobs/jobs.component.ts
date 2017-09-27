@@ -36,7 +36,7 @@ export class JobsComponent implements OnInit, OnDestroy {
   }
 
   loadNew() {
-    this.jobService.loadJobs();
+    this.jobService.load();
   }
 
   add() {

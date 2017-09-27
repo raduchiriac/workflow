@@ -10,8 +10,10 @@ import {
   transition
 } from '@angular/animations';
 
+import { Trigger } from '../../_models';
 import * as AppStore from '../../app.store';
 import * as ModalsActions from '../../store/actions/modals.actions';
+import * as TriggersActions from '../../store/actions/triggers.actions';
 
 @Component({
   selector: 'app-modals',
@@ -41,6 +43,20 @@ export class ModalsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+  }
+
+  addTrigger() {
+    let newT:Trigger = {
+      className: 'demo',
+      key: 'demoKey',
+      description: '',
+      startTime: '',
+      jobKey: 'demoJob',
+      cronExpression: '* * * 8 *'
+    };
+
+    this.store.dispatch(new TriggersActions.TriggerAdd(newT));
+    this.modalStateChange(false, 'triggerAddNew_open')
   }
 
   modalStateChange(open, who) {

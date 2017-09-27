@@ -5,11 +5,10 @@ import { Store } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 
 import { Trigger } from '../_models';
-import { TriggersActions } from '../store/actions';
+import * as TriggersActions from '../store/actions/triggers.actions';
+import { State } from '../store/reducers/triggers.reducer';
 
 import { HttpService } from '../core/http.service';
-
-import { State } from '../store/reducers/triggers.reducer';
 
 @Injectable()
 export class TriggerService {
@@ -30,12 +29,7 @@ export class TriggerService {
       const body = res.json();
       return body.db.triggers || {};
     })
-    .map((payload: Trigger[]) => {
-      return {
-        type: TriggersActions.TRIGGERS_ADD,
-        payload
-      };
-    })
+    .map((payload: Trigger[]) => new TriggersActions.TriggersAdd(payload))
     .subscribe((action) => {
       this.store.dispatch(action);
     });

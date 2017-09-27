@@ -10,8 +10,6 @@ import { State } from '../store/reducers/jobs.reducer';
 
 import { HttpService } from '../core/http.service';
 
-import { AppState } from '../app.store';
-
 @Injectable()
 export class JobService {
 
@@ -25,7 +23,7 @@ export class JobService {
     this.jobs = store.select(store => store.jobs);
   }
 
-  loadJobs = () =>
+  load = () =>
     this.http.get(this.URL)
     .map((res: Response) => {
       const body = res.json();

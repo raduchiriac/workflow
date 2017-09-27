@@ -5,10 +5,6 @@
       <form>
         <section class="form-block">
           <div class="form-group">
-            <label for="aForm_1">This is a form field</label>
-            <input type="text" id="aForm_1" placeholder="Enter value here" size="45">
-          </div>
-          <div class="form-group">
             <label for="aForm_2">Class Name</label>
             <input type="password" id="aForm_2" placeholder="Enter the class name" size="35">
           </div>
@@ -32,7 +28,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline" (click)="modalStateChange(false, 'triggerAddNew_open')">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="modalStateChange(false, 'triggerAddNew_open')">ADD</button>
+      <button type="button" class="btn btn-primary" (click)="addTrigger()">ADD</button>
     </div>
   </clr-modal>
 
@@ -42,7 +38,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline" (click)="modalStateChange(false, 'triggerPreview_open')">Close</button>
-      <button type="button" class="btn btn-primary" (click)="modalStateChange(false, 'triggerPreview_open')">SAVE</button>
+      <button type="button" class="btn btn-primary" (click)="addTrigger()">SAVE</button>
     </div>
   </clr-modal>
 </div>
