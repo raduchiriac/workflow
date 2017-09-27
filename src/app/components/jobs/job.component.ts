@@ -35,8 +35,4 @@ export class JobComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  loadNew() {
-    this.jobService.loadJobs();
-  }
-
 }
