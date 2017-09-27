@@ -2,12 +2,12 @@
   <clr-button class="btn" (click)="add()">ADD NEW JOB</clr-button>
   <clr-button class="btn" (click)="loadNew()">GET LATEST</clr-button>
 </clr-button-group>
-<app-tasks-count></app-tasks-count>
+<app-jobs-count></app-jobs-count>
 
 <div>
-  <div *ngFor="let task of (tasks | async) let idx = index" class="row task">
-    <a routerLink="/task/{{task.token}}">GO</a>
-    <div>{{task.key}}</div>
+  <div *ngFor="let job of (jobs | async) let idx = index" class="row job">
+    <a routerLink="/job/{{job.token}}">GO</a>
+    <div>{{job.key}}</div>
     <div class="toggle-switch">
       <input type="checkbox" id="toggle_{{idx}}" checked>
       <label for="toggle_{{idx}}"></label>

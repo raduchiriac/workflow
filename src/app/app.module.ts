@@ -17,12 +17,12 @@ import { Pipes } from './_pipes';
 
 // TODO: Move to AppComponent
 import { ModalsComponent } from './components/modals/modals.component';
-import { TasksComponent } from './components/tasks/tasks.component';
+import { JobsComponent } from './components/jobs/jobs.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
-import { TasksCountComponent } from './components/tasks/tasks-count.component';
-import { TaskComponent } from './components/tasks/task.component';
+import { JobsCountComponent } from './components/jobs/jobs-count.component';
+import { JobComponent } from './components/jobs/job.component';
 
-import { TaskService, TriggerService, SocketService } from './_services';
+import { JobService, TriggerService, SocketService } from './_services';
 
 import { AppStore, reducers, metaReducers } from './app.store'
 
@@ -32,9 +32,9 @@ import { AppStore, reducers, metaReducers } from './app.store'
     AppComponent,
     // TODO: Move to AppComponent
     ModalsComponent,
-    TasksComponent,
-    TasksCountComponent,
-    TaskComponent,
+    JobsComponent,
+    JobsCountComponent,
+    JobComponent,
     TriggersComponent,
   ],
   imports: [
@@ -49,7 +49,7 @@ import { AppStore, reducers, metaReducers } from './app.store'
     StoreDevtoolsModule.instrument(),
   ],
   providers: [
-    TaskService,
+    JobService,
     TriggerService,
     SocketService,
   ],

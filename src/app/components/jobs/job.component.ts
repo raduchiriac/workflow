@@ -2,32 +2,32 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Task } from '../../_models';
-import { TaskService } from '../../_services';
+import { Job } from '../../_models';
+import { JobService } from '../../_services';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: 'task.component.html',
+  selector: 'app-job',
+  templateUrl: 'job.component.html',
   styleUrls: [],
   encapsulation: ViewEncapsulation.None
 })
 
-export class TaskComponent implements OnInit, OnDestroy {
+export class JobComponent implements OnInit, OnDestroy {
 
   // Redux based variables
-  task: any //Observable<Task>;
+  job: any //Observable<Job>;
 
   private subscription: Subscription;
 
   constructor(
-    private taskService: TaskService,
+    private jobService: JobService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
-      // this.task = this.taskService.getTask(params['token']);
+      // this.job = this.jobService.getJob(params['token']);
    });
   }
 
@@ -36,7 +36,7 @@ export class TaskComponent implements OnInit, OnDestroy {
   }
 
   loadNew() {
-    this.taskService.loadTasks();
+    this.jobService.loadJobs();
   }
 
 }
