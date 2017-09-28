@@ -32,8 +32,8 @@ export const reducers: ActionReducerMap<AppState> = {
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return function(state: AppState, action: any): AppState {
+    // TODO:
     // Hide using this regex in Chrome's filter zone
-    //
     console.groupCollapsed('>> LOGGER !<<');
     console.log(`state `, state);
     console.log(`action`, action);

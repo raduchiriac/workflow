@@ -2,24 +2,26 @@ import * as JobsActions from '../actions/jobs.actions';
 import { Job } from '../../_models';
 
 export interface State {
-  jobs: Job[];
+  currentJob: string,
+  entities: Array<Job>;
 }
 
-export function reducer(state: any = [], { type, payload }) {
-  switch (type) {
+const initialState: State = {
+  currentJob: '',
+  entities: []
+};
+
+export function reducer(state = initialState, action: JobsActions.Actions) {
+  switch (action.type) {
     case JobsActions.JOBS_ADD:
-      return payload;
+      return {...state, entities: action.payload};
     // Singular
     case JobsActions.JOB_ADD:
-      return [...state, payload];
+      return {...state, entities: [...state.entities, action.payload]};
     case JobsActions.JOB_UPDATE:
-      return state.map(job => {
-        return job.token === payload.token ? Object.assign({}, job, payload) : job;
-      });
+      return state;
     case JobsActions.JOB_DELETE:
-      return state.filter(job => {
-        return job.token !== payload.token;
-      });
+      return state;
     default:
       return state;
   }

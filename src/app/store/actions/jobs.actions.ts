@@ -9,6 +9,7 @@ export const JOBS_ADD = '[Jobs] Add';
 
 export class JobAdd implements Action {
   readonly type = JOB_ADD;
+  constructor(public payload: Job) {}
 }
 export class JobDelete implements Action {
   readonly type = JOB_DELETE;

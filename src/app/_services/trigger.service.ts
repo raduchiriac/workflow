@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import { Trigger } from '../_models';
 import * as TriggersActions from '../store/actions/triggers.actions';
 import { State } from '../store/reducers/triggers.reducer';
-
+import { AppState } from '../app.store';
 import { HttpService } from '../core/http.service';
 
 @Injectable()
@@ -18,9 +18,9 @@ export class TriggerService {
 
   constructor(
     private http: HttpService,
-    private store: Store<State>
+    private store: Store<AppState>
   ) {
-    this.triggers = store.select(store => store.triggers);
+    this.triggers = store.select(store => store.triggers.entities);
   }
 
   load = () =>

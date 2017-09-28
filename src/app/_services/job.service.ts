@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import { Job } from '../_models';
 import * as JobsActions from '../store/actions/jobs.actions';
 import { State } from '../store/reducers/jobs.reducer';
-
+import { AppState } from '../app.store';
 import { HttpService } from '../core/http.service';
 
 @Injectable()
@@ -18,9 +18,9 @@ export class JobService {
 
   constructor(
     private http: HttpService,
-    private store: Store<State>
+    private store: Store<AppState>
   ) {
-    this.jobs = store.select(store => store.jobs);
+    this.jobs = store.select(store => store.jobs.entities);
   }
 
   load = () =>
