@@ -21,17 +21,24 @@
     <div class="header-nav">
       <a routerLink="/jobs" [routerLinkActive]="'active'" class="nav-link"><span class="nav-text">JOBS</span></a>
       <a routerLink="/triggers" [routerLinkActive]="'active'" class="nav-link"><span class="nav-text">TRIGGERS</span></a>
+      <a routerLink="/logs" [routerLinkActive]="'active'" class="nav-link"><span class="nav-text">LOGS</span></a>
     </div>
+    <div class="header-actions">
+      <clr-dropdown>
+          <button class="nav-text" clrDropdownTrigger>
+              <span>john.doe@hello.com</span>
+              <clr-icon shape="caret down"></clr-icon>
+          </button>
+          <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+              <a clrDropdownItem>About</a>
+              <a clrDropdownItem>Preferences</a>
+              <a clrDropdownItem>Log out</a>
+          </clr-dropdown-menu>
+      </clr-dropdown>
+  </div>
   </clr-header>
   <nav class="subnav" hidden>
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sub Link 1</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Sub Link 2</a>
-        </li>
-    </ul>
+    <!-- SEARCH FORM -->
   </nav>
   <div class="content-container">
       <div class="content-area">

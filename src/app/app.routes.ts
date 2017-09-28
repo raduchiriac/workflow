@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
-import { JobComponent } from './components/jobs/job.component';
 import { PageNotFoundComponent } from './core/404/page-not-found.component';
 
 export const AppRoutes: Routes = [{
@@ -11,14 +10,14 @@ export const AppRoutes: Routes = [{
       title: `Triggers' List`
     }
   }, {
+    path: 'logs',
+    loadChildren: './views/logs/logs.module#LogsModule',
+  }, {
     path: 'jobs',
     component: JobsComponent,
     data: {
       title: `Jobs' List`
     }
-  }, {
-    path: 'job/:token',
-    component: JobComponent
   }, {
     // Redirect
     path: '',

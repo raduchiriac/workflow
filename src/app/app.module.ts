@@ -15,7 +15,7 @@ import { AppRoutes } from './app.routes';
 
 import { Pipes } from './_pipes';
 
-// TODO: Move to AppComponent
+// TODO: Move to AppCommon
 import { ModalsComponent } from './components/modals/modals.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { TriggersComponent } from './components/triggers/triggers.component';
@@ -30,7 +30,7 @@ import { AppStore, reducers, metaReducers } from './app.store'
   declarations: [
     Pipes,
     AppComponent,
-    // TODO: Move to AppComponent
+    // TODO: Move to AppCommon
     ModalsComponent,
     JobsComponent,
     JobsCountComponent,
