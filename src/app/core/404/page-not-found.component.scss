@@ -1,0 +1,12 @@
+.page__404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+
+  .page__404-title {
+    font-size: 16em;
+    font-weight: 600;
+  }
+}
