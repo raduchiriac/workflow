@@ -2,18 +2,10 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
-
 import { Trigger } from '../../_models';
 import * as AppStore from '../../app.store';
 import * as ModalsActions from '../../store/actions/modals.actions';
-import * as TriggersActions from '../../store/actions/triggers.actions';
+import * as TriggersActions from '../../views/triggers/actions/triggers.actions';
 
 @Component({
   selector: 'app-modals',

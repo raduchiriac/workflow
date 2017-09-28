@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LogsPageComponent } from './containers/logs-page';
+import { LogsContainerComponent } from './containers/logs.container';
 
 @NgModule({
   imports: [
     RouterModule.forChild([{
       path: '',
-      component: LogsPageComponent },
+      component: LogsContainerComponent },
     ]),
   ],
   declarations: [
-    LogsPageComponent
+    LogsContainerComponent
   ],
   providers: [],
 })

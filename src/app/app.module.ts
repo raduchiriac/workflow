@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { ClarityModule } from "clarity-angular";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -13,29 +12,24 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
-import { Pipes } from './_pipes';
-
 // TODO: Move to AppCommon
 import { ModalsComponent } from './components/modals/modals.component';
 import { JobsComponent } from './components/jobs/jobs.component';
-import { TriggersComponent } from './components/triggers/triggers.component';
 import { JobsCountComponent } from './components/jobs/jobs-count.component';
 import { JobComponent } from './components/jobs/job.component';
 
 import { JobService, TriggerService, SocketService } from './_services';
 
-import { AppStore, reducers, metaReducers } from './app.store'
+import { reducers, metaReducers } from './app.store'
 
 @NgModule({
   declarations: [
-    Pipes,
     AppComponent,
     // TODO: Move to AppCommon
     ModalsComponent,
     JobsComponent,
     JobsCountComponent,
     JobComponent,
-    TriggersComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,21 +13,18 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import * as ModalsReducer from "./store/reducers/modals.reducer";
 import * as SocketReducer from "./store/reducers/socket.reducer";
 import * as JobsReducer from "./store/reducers/jobs.reducer";
-import * as TriggersReducer from "./store/reducers/triggers.reducer";
 import * as RouterReducer from "./store/reducers/router.reducer";
 
 export interface AppState {
   modals: ModalsReducer.State;
   socket: SocketReducer.State;
   jobs: JobsReducer.State;
-  triggers: TriggersReducer.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   modals: ModalsReducer.reducer,
   socket: SocketReducer.reducer,
   jobs: JobsReducer.reducer,
-  triggers: TriggersReducer.reducer,
 }
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {

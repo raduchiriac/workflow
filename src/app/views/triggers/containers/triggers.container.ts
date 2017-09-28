@@ -2,30 +2,29 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../app.store';
-
-import { Trigger } from '../../_models';
-import * as ModalsActions from '../../store/actions/modals.actions';
-import { TriggerService } from '../../_services';
+import { Trigger } from '../../../_models';
+import { TriggerService } from '../../../_services';
+import * as ModalsActions from '../../../store/actions/modals.actions';
+import * as reducer from '../reducers';
 
 @Component({
-  selector: 'app-triggers',
-  templateUrl: 'triggers.component.html',
-  styleUrls: ['triggers.component.scss'],
+  selector: 'app-containers-triggers',
+  templateUrl: 'triggers.container.html',
+  styleUrls: ['triggers.container.scss'],
   encapsulation: ViewEncapsulation.None
 })
 @Injectable()
-export class TriggersComponent implements OnInit, OnDestroy {
+export class TriggersContainerComponent implements OnInit, OnDestroy {
 
   triggers: Observable<Array<Trigger>>;
 
   private subscription: Subscription;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<reducer.State>,
     private triggerService: TriggerService,
   ) {
-    this.triggers = triggerService.triggers;
+    this.triggers = store.select(reducer.getTriggersEntitiesState);
   }
 
   ngOnInit() {

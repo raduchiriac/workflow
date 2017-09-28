@@ -1,2 +1,2 @@
 export * from './job';
-export * from './trigger';
+export * from '../views/triggers/models/trigger';

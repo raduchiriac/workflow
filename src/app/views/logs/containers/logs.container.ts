@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, OnInit, Injectable } from '@angular/core';
 
 @Component({
-  selector: 'app-pages-logs-page',
-  templateUrl: './logs-page.html',
+  selector: 'app-containers-logs',
+  templateUrl: './logs.container.html',
   styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 @Injectable()
-export class LogsPageComponent implements OnInit {
+export class LogsContainerComponent implements OnInit {
 
   constructor() { }
 

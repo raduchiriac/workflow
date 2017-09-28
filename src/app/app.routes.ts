@@ -1,14 +1,10 @@
 import { Routes } from '@angular/router';
 import { JobsComponent } from './components/jobs/jobs.component';
-import { TriggersComponent } from './components/triggers/triggers.component';
 import { PageNotFoundComponent } from './core/404/page-not-found.component';
 
 export const AppRoutes: Routes = [{
     path: 'triggers',
-    component: TriggersComponent,
-    data: {
-      title: `Triggers' List`
-    }
+    loadChildren: './views/triggers/triggers.module#TriggersModule',
   }, {
     path: 'logs',
     loadChildren: './views/logs/logs.module#LogsModule',
