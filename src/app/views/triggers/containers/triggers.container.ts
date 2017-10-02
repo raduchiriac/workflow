@@ -21,7 +21,7 @@ export class TriggersContainerComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private store: Store<reducer.State>,
+    private store: Store<reducer.TriggersState>,
     private triggerService: TriggerService,
   ) {
     this.triggers = store.select(reducer.getTriggersEntitiesState);

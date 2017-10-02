@@ -1,4 +1,4 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { createSelector, createFeatureSelector, ActionReducerMap } from '@ngrx/store';
 import * as TriggersReducer from './triggers.reducer';
 import { AppState } from '../../../app.store';
 
@@ -10,7 +10,7 @@ export interface State extends AppState {
   'triggers': TriggersState;
 }
 
-export const reducers = {
+export const reducers: ActionReducerMap<any> = {
   triggers: TriggersReducer.reducer
 };
 
