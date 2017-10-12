@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import * as reducer from '../reducers';
 
-import { Job } from '../../_models';
-import { JobService } from '../../_services';
+import { Job } from '../../../_models';
+import { JobsService } from '../../../_services';
 
 @Component({
   selector: 'app-jobs-count',
@@ -14,9 +16,10 @@ export class JobsCountComponent implements OnInit {
   jobs: Observable<Array<Job>>;
 
   constructor(
-    private jobService: JobService
+    private store: Store<reducer.JobsState>,
+    private jobService: JobsService
   ) {
-    this.jobs = jobService.jobs;
+    this.jobs = store.select(reducer.getJobsEntitiesState);
   }
 
   ngOnInit() { }

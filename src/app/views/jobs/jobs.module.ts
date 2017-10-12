@@ -6,8 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ClarityModule } from "clarity-angular";
 
 import { ComponentsModule } from './components';
-import { PipesModule } from '../../_pipes/pipes.module';
-import { TriggersContainer } from './containers/triggers.container';
+import { JobsContainer } from './containers/jobs.container';
 
 import { reducers }  from './reducers';
 
@@ -15,17 +14,16 @@ import { reducers }  from './reducers';
   imports: [
     CommonModule,
     ComponentsModule,
-    PipesModule,
     ClarityModule.forRoot(),
     RouterModule.forChild([{
       path: '',
-      component: TriggersContainer
+      component: JobsContainer
     }]),
-    StoreModule.forFeature('triggers', reducers),
+    StoreModule.forFeature('jobs', reducers),
   ],
   declarations: [
-    TriggersContainer,
+    JobsContainer,
   ],
   providers: [],
 })
-export class TriggersModule {}
+export class JobsModule {}

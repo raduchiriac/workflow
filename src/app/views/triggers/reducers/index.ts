@@ -7,7 +7,7 @@ export interface TriggersState {
 }
 
 export interface State extends AppState {
-  'triggers': TriggersState;
+  triggers: TriggersState;
 }
 
 export const reducers: ActionReducerMap<any> = {

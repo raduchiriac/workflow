@@ -12,24 +12,16 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
-// TODO: Move to AppCommon
 import { ModalsComponent } from './core/modals/modals.component';
-import { JobsComponent } from './components/jobs/jobs.component';
-import { JobsCountComponent } from './components/jobs/jobs-count.component';
-import { JobComponent } from './components/jobs/job.component';
 
-import { JobService, TriggerService, SocketService } from './_services';
+import { JobsService, TriggersService, SocketService } from './_services';
 
 import { reducers, metaReducers } from './app.store'
 
 @NgModule({
   declarations: [
     AppComponent,
-    // TODO: Move to AppCommon
     ModalsComponent,
-    JobsComponent,
-    JobsCountComponent,
-    JobComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +35,9 @@ import { reducers, metaReducers } from './app.store'
     StoreDevtoolsModule.instrument(),
   ],
   providers: [
-    JobService,
-    TriggerService,
     SocketService,
+    JobsService,
+    TriggersService
   ],
   bootstrap: [AppComponent]
 })

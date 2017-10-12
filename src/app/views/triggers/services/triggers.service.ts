@@ -10,7 +10,7 @@ import * as TriggersActions from '../actions/triggers.actions';
 import { State } from '../reducers';
 
 @Injectable()
-export class TriggerService {
+export class TriggersService {
 
   URL = environment.backend.url;
 

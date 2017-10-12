@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Job } from '../../_models';
-import { JobService } from '../../_services';
+import { Job } from '../../../_models';
+import { JobsService } from '../../../_services';
 
 @Component({
   selector: 'app-job',
@@ -14,21 +14,18 @@ import { JobService } from '../../_services';
 
 export class JobComponent implements OnInit, OnDestroy {
 
-  // Redux based variables
-  job: any //Observable<Job>;
+  job: any;
 
   private subscription: Subscription;
 
   constructor(
-    private jobService: JobService,
+    private jobService: JobsService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
-    this.subscription = this.route.params.subscribe(params => {
-      // this.job = this.jobService.getJob(params['token']);
-   });
+    this.subscription = this.route.params.subscribe(params => {});
   }
 
   ngOnDestroy() {

@@ -1,27 +1,29 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
-import { Job } from '../../_models/job';
-import { JobService } from '../../_services';
+import { Job } from '../../../_models';
+import { JobsService } from '../../../_services';
+import * as reducer from '../reducers';
 
 @Component({
   selector: 'app-jobs',
-  templateUrl: 'jobs.component.html',
-  styleUrls: ['jobs.component.scss'],
+  templateUrl: 'jobs.container.html',
+  styleUrls: ['jobs.container.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
-export class JobsComponent implements OnInit, OnDestroy {
+export class JobsContainer implements OnInit, OnDestroy {
 
-  // Redux based variables
   jobs: Observable<Array<Job>>;
 
   private subscription: Subscription;
 
   constructor(
-    private jobService: JobService
+    private store: Store<reducer.JobsState>,
+    private jobsService: JobsService,
   ) {
-    this.jobs = jobService.jobs;
+    this.jobs = store.select(reducer.getJobsEntitiesState);
   }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class JobsComponent implements OnInit, OnDestroy {
   }
 
   loadNew() {
-    this.jobService.load();
+    this.jobsService.load();
   }
 
   add() {

@@ -3,7 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Trigger } from '../../../_models';
-import { TriggerService } from '../../../_services';
+import { TriggersService } from '../../../_services';
 import * as ModalsActions from '../../../store/actions/modals.actions';
 import * as reducer from '../reducers';
 
@@ -14,7 +14,7 @@ import * as reducer from '../reducers';
   encapsulation: ViewEncapsulation.None
 })
 @Injectable()
-export class TriggersContainerComponent implements OnInit, OnDestroy {
+export class TriggersContainer implements OnInit, OnDestroy {
 
   triggers: Observable<Array<Trigger>>;
 
@@ -22,7 +22,7 @@ export class TriggersContainerComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<reducer.TriggersState>,
-    private triggerService: TriggerService,
+    private triggersService: TriggersService,
   ) {
     this.triggers = store.select(reducer.getTriggersEntitiesState);
   }
@@ -43,7 +43,7 @@ export class TriggersContainerComponent implements OnInit, OnDestroy {
   }
 
   load() {
-    this.triggerService.load();
+    this.triggersService.load();
   }
 
   export () { }

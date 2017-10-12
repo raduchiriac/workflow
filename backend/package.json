@@ -9,9 +9,11 @@
   "keywords": [],
   "author": "Radu Chiriac",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "1.12.1"
+  },
   "dependencies": {
-    "express": "4.16.1",
-    "nodemon": "1.12.1",
+    "express": "4.16.2",
     "socket.io": "2.0.3"
   }
 }

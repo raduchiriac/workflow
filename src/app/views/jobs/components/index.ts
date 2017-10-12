@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-// YOUR import COMPONENTS HERE
+import { JobComponent } from './job.component';
+import { JobsCountComponent } from './jobs-count.component';
 
 const COMPONENTS = [
-  // YOUR COMPONENTS HERE
+  JobComponent,
+  JobsCountComponent
 ];
 
 @NgModule({
