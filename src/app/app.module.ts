@@ -9,19 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
-
-import { ModalsComponent } from './core/modals/modals.component';
-
-import { JobsService, TriggersService, SocketService } from './_services';
 
 import { reducers, metaReducers } from './app.store'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,16 +25,13 @@ import { reducers, metaReducers } from './app.store'
     FormsModule,
     HttpModule,
     CoreModule,
+    SharedModule,
     ClarityModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
     StoreModule.forRoot(reducers, {metaReducers}),
     StoreDevtoolsModule.instrument(),
   ],
-  providers: [
-    SocketService,
-    JobsService,
-    TriggersService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

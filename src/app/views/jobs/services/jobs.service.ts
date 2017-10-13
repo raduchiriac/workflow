@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
 
-import { Job } from '../../../_models';
+import { Job } from '../../../shared/_models';
 import * as JobsActions from '../actions/jobs.actions';
 import { State } from '../reducers/jobs.reducer';
 import { AppState } from '../../../app.store';

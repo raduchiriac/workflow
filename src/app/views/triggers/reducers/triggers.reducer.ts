@@ -1,6 +1,5 @@
 import * as TriggersActions from '../actions/triggers.actions'
-import { Trigger } from '../../../_models';
-// import * as AppStore from '../../../app.store';
+import { Trigger } from '../../../shared/_models';
 
 export interface State {
   currentTrigger: string;

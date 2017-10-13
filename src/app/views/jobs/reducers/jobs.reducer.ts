@@ -1,6 +1,5 @@
 import * as JobsActions from '../actions/jobs.actions';
-import { Job } from '../../../_models';
-// import * as AppStore from '../../../app.store';
+import { Job } from '../../../shared/_models';
 
 export interface State {
   currentJob: string,

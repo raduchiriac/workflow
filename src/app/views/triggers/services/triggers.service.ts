@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { HttpService } from '../../../core/http.service';
 import { environment } from '../../../../environments/environment';
 
-import { Trigger } from '../../../_models';
+import { Trigger } from '../../../shared/_models';
 import * as TriggersActions from '../actions/triggers.actions';
 import { State } from '../reducers';
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Trigger } from '../../../_models';
+import { Trigger } from '../../../shared/_models';
 
 export const TRIGGERS_ADD = '[Triggers] Add';
 // Singular

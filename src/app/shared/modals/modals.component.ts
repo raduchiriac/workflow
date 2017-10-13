@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Trigger } from '../../_models';
+import { Trigger } from '../_models';
 import * as AppStore from '../../app.store';
 import * as ModalsActions from '../../store/actions/modals.actions';
 import * as TriggersActions from '../../views/triggers/actions/triggers.actions';
@@ -52,16 +52,14 @@ export class ModalsComponent implements OnInit, OnDestroy {
   }
 
   modalStateChange(open, who) {
-    if(!open)
-      switch(who) {
+    if (!open) {
+      switch (who) {
         case 'triggerAddNew_open':
-          this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
-          break;
-        case 'triggerPreview_open':
-          this.store.dispatch(new ModalsActions.CloseTriggerPreviewAction());
-          break;
-        default:
-          break;
+        this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
+        break;
+      default:
+        break;
+      }
     }
   }
 }

@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Trigger } from '../../../_models';
-import { TriggersService } from '../../../_services';
+import { Trigger } from '../../../shared/_models';
+import { TriggersService } from '../../../shared/_services';
 import * as ModalsActions from '../../../store/actions/modals.actions';
 import * as reducer from '../reducers';
 

@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, getSocketStatus } from './app.store';
-import { SocketService } from './_services';
+import { SocketService } from './shared/_services';
 import { Observable } from 'rxjs/Observable';
 import * as SocketActions from './store/actions/socket.actions';
 

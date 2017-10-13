@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Job } from '../../../_models';
-import { JobsService } from '../../../_services';
+import { Job } from '../../../shared/_models';
+import { JobsService } from '../../../shared/_services';
 import * as reducer from '../reducers';
 
 @Component({

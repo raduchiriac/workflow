@@ -31,14 +31,5 @@
       <button type="button" class="btn btn-primary" (click)="addTrigger()">ADD</button>
     </div>
   </clr-modal>
-
-  <clr-modal [(clrModalOpen)]="triggerPreview_open" id="trigger-preview-modal" [clrModalSkipAnimation]="true" (clrModalOpenChange)="modalStateChange($event, 'triggerPreview_open')">
-    <div class="modal-body">
-      PREVIEW
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="modalStateChange(false, 'triggerPreview_open')">Close</button>
-      <button type="button" class="btn btn-primary" (click)="addTrigger()">SAVE</button>
-    </div>
-  </clr-modal>
+  <app-modals-trigger-preview></app-modals-trigger-preview>
 </div>
