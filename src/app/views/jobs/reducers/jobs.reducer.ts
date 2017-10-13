@@ -2,7 +2,7 @@ import * as JobsActions from '../actions/jobs.actions';
 import { Job } from '../../../shared/_models';
 
 export interface State {
-  currentJob: string,
+  currentJob: string;
   entities: Array<Job>;
 }
 

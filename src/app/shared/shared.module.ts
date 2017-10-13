@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ClarityModule } from "clarity-angular";
+import { ClarityModule } from 'clarity-angular';
 
 import { ModalsModule } from './modals/modals.module';
 import { PageNotFoundComponent } from './404/page-not-found.component';

@@ -1,32 +1,3 @@
 #modals-component {
   position: absolute;
-
-  #modals-trigger-preview {
-    .modal {
-      align-items: flex-end;
-      padding: 0;
-
-      .modal-dialog {
-        width: 80vw;
-        max-width: 992px; // .col-lg-12
-
-        .modal-content {
-          height: 80vh;
-          border-radius: 3px 0 0 3px;
-          animation-name: slideInRight;
-          animation-duration: 0.2s;
-          display: flex;
-          flex-direction: column;
-
-          .modal-header {
-            display: none;
-          }
-          .modal-body {
-            flex-grow: 1;
-            overflow-y: auto;
-          }
-        }
-      }
-    }
-  }
 }

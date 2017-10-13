@@ -2,7 +2,7 @@ import * as ModalsActions from '../actions/modals.actions';
 
 export interface State {
   triggerAdd: boolean;
-  triggerPreview: boolean
+  triggerPreview: boolean;
 }
 
 const initialState: State = {

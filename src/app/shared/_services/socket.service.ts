@@ -12,7 +12,7 @@ export class SocketService {
   connected$ = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    this.socket = socketIo("http://localhost:4201", {});
+    this.socket = socketIo('http://localhost:4201', {});
     this.socket.on('connect', () => this.connected$.next(true));
     this.socket.on('disconnect', () => this.connected$.next(false));
   }

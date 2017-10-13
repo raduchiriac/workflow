@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { ClarityModule } from "clarity-angular";
+import { ClarityModule } from 'clarity-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
@@ -13,7 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 
-import { reducers, metaReducers } from './app.store'
+import { reducers, metaReducers } from './app.store';
 
 @NgModule({
   declarations: [

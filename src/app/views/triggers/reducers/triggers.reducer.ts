@@ -1,4 +1,4 @@
-import * as TriggersActions from '../actions/triggers.actions'
+import * as TriggersActions from '../actions/triggers.actions';
 import { Trigger } from '../../../shared/_models';
 
 export interface State {

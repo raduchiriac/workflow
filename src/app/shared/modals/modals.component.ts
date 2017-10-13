@@ -38,7 +38,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
   }
 
   addTrigger() {
-    let newT:Trigger = {
+    const newT: Trigger = {
       className: 'demo',
       key: 'demoKey',
       description: '',
@@ -48,7 +48,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
     };
 
     this.store.dispatch(new TriggersActions.TriggerAdd(newT));
-    this.modalStateChange(false, 'triggerAddNew_open')
+    this.modalStateChange(false, 'triggerAddNew_open');
   }
 
   modalStateChange(open, who) {

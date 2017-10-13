@@ -4,15 +4,15 @@ import {
   ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
-  MetaReducer } from "@ngrx/store";
+  MetaReducer } from '@ngrx/store';
 
 import * as RouterStore from '@ngrx/router-store';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 
-import * as ModalsReducer from "./store/reducers/modals.reducer";
-import * as SocketReducer from "./store/reducers/socket.reducer";
-import * as RouterReducer from "./store/reducers/router.reducer";
+import * as ModalsReducer from './store/reducers/modals.reducer';
+import * as SocketReducer from './store/reducers/socket.reducer';
+import * as RouterReducer from './store/reducers/router.reducer';
 
 export interface AppState {
   modals: ModalsReducer.State;
@@ -22,7 +22,7 @@ export interface AppState {
 export const reducers: ActionReducerMap<AppState> = {
   modals: ModalsReducer.reducer,
   socket: SocketReducer.reducer,
-}
+};
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return function(state: AppState, action: any): AppState {
