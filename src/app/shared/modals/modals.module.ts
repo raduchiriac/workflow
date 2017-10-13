@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ClarityModule } from 'clarity-angular';
 
-import { PreviewModalComponent } from '../../views/triggers/containers/modals';
+import { PreviewModalComponent, AddModalComponent } from '../../views/triggers/containers/modals';
 import { ModalsComponent } from './modals.component';
 
 @NgModule({
@@ -9,6 +9,7 @@ import { ModalsComponent } from './modals.component';
     ModalsComponent,
     // Components' Modals
     PreviewModalComponent,
+    AddModalComponent
   ],
   imports: [
     ClarityModule.forRoot(),

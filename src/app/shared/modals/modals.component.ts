@@ -1,11 +1,4 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-
-import { Trigger } from '../_models';
-import * as AppStore from '../../app.store';
-import * as ModalsActions from '../../store/actions/modals.actions';
-import * as TriggersActions from '../../views/triggers/actions/triggers.actions';
 
 @Component({
   selector: 'app-modals',
@@ -16,50 +9,10 @@ import * as TriggersActions from '../../views/triggers/actions/triggers.actions'
 @Injectable()
 export class ModalsComponent implements OnInit, OnDestroy {
 
-  triggerAddNew$: Observable<boolean>;
-  triggerAddNew_open: boolean;
+  constructor() { }
 
-  triggerPreview$: Observable<boolean>;
-  triggerPreview_open: boolean;
+  ngOnInit() { }
 
-  constructor(
-    private store: Store<AppStore.AppState>,
-  ) {
-    this.triggerAddNew$ = this.store.select(AppStore.getTriggerAdd);
-    this.triggerPreview$ = this.store.select(AppStore.getTriggerPreview);
-  }
+  ngOnDestroy() { }
 
-  ngOnInit() {
-    this.triggerAddNew$.subscribe(res => this.triggerAddNew_open = res);
-    this.triggerPreview$.subscribe(res => this.triggerPreview_open = res);
-  }
-
-  ngOnDestroy() {
-  }
-
-  addTrigger() {
-    const newT: Trigger = {
-      className: 'demo',
-      key: 'demoKey',
-      description: '',
-      startTime: '',
-      jobKey: 'demoJob',
-      cronExpression: '* * * 8 *'
-    };
-
-    this.store.dispatch(new TriggersActions.TriggerAdd(newT));
-    this.modalStateChange(false, 'triggerAddNew_open');
-  }
-
-  modalStateChange(open, who) {
-    if (!open) {
-      switch (who) {
-        case 'triggerAddNew_open':
-        this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
-        break;
-      default:
-        break;
-      }
-    }
-  }
 }

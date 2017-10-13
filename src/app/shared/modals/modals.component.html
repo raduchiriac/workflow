@@ -1,35 +1,4 @@
 <div id="modals-component">
-  <clr-modal [(clrModalOpen)]="triggerAddNew_open" [clrModalSize]="'lg'" (clrModalOpenChange)="modalStateChange($event, 'triggerAddNew_open')">
-    <h3 class="modal-title">Add New Trigger</h3>
-    <div class="modal-body">
-      <form>
-        <section class="form-block">
-          <div class="form-group">
-            <label for="aForm_2">Class Name</label>
-            <input type="text" id="aForm_2" placeholder="Enter the class name" size="35">
-          </div>
-          <div class="form-group">
-            <label for="aForm_3">Job Key</label>
-            <div class="select">
-              <select id="aForm_3">
-                <option>workflow:scheduleUndeliveredMessagesJob</option>
-                <option>workflow:scheduleMessagesJob</option>
-                <option>workflow:scheduleRustJob</option>
-                <option>workflow:scheduleResponseMessagesJob</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="aForm_4">Description</label>
-            <textarea id="aForm_4" rows="4"></textarea>
-          </div>
-        </section>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="modalStateChange(false, 'triggerAddNew_open')">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="addTrigger()">ADD</button>
-    </div>
-  </clr-modal>
+  <app-modals-trigger-add></app-modals-trigger-add>
   <app-modals-trigger-preview></app-modals-trigger-preview>
 </div>
