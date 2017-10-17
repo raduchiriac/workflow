@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as socketIo from 'socket.io-client';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { environment } from '../../../environments/environment';
 
 // Low level socket service api (based on rxjs)
 
@@ -10,9 +11,10 @@ export class SocketService {
 
   private socket: SocketIOClient.Socket;
   connected$ = new BehaviorSubject<boolean>(false);
+  URL:string = environment.backend.url;
 
   constructor() {
-    this.socket = socketIo('http://localhost:4201', {});
+    this.socket = socketIo(this.URL, {});
     this.socket.on('connect', () => this.connected$.next(true));
     this.socket.on('disconnect', () => this.connected$.next(false));
   }

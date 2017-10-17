@@ -1,32 +1,50 @@
-<clr-modal [(clrModalOpen)]="triggerAddNew_open" [clrModalSize]="'lg'" (clrModalOpenChange)="closeModal($event, 'triggerAddNew_open')">
-  <h3 class="modal-title">Add New Trigger</h3>
+<clr-modal [(clrModalOpen)]="triggerAddNew_open" [clrModalSize]="'lg'" (clrModalOpenChange)="closeModal()">
+  <h3 class="modal-title">Add a new Cron/Action</h3>
   <div class="modal-body">
-    <form>
-      <section class="form-block">
-        <div class="form-group">
-          <label for="aForm_2">Class Name</label>
-          <input type="text" id="aForm_2" placeholder="Enter the class name" size="35">
-        </div>
-        <div class="form-group">
-          <label for="aForm_3">Job Key</label>
-          <div class="select">
-            <select id="aForm_3">
-              <option>workflow:scheduleUndeliveredMessagesJob</option>
-              <option>workflow:scheduleMessagesJob</option>
-              <option>workflow:scheduleRustJob</option>
-              <option>workflow:scheduleResponseMessagesJob</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="aForm_4">Description</label>
-          <textarea id="aForm_4" rows="4"></textarea>
-        </div>
-      </section>
-    </form>
+    <clr-tabs>
+        <clr-tab>
+            <button clrTabLink>Cron</button>
+            <ng-template [(clrIfActive)]="CronActive">
+                <clr-tab-content>
+                  <form>
+                      <section class="form-block">
+                        <div class="form-group">
+                          <label for="aForm_2">Class Name</label>
+                          <input type="text" id="aForm_2" placeholder="Enter the class name" size="35">
+                        </div>
+                        <div class="form-group">
+                          <label for="aForm_3">Job Key</label>
+                          <div class="select">
+                            <select id="aForm_3">
+                              <option>workflow:scheduleUndeliveredMessagesJob</option>
+                              <option>workflow:scheduleMessagesJob</option>
+                              <option>workflow:scheduleRustJob</option>
+                              <option>workflow:scheduleResponseMessagesJob</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="aForm_4">Description</label>
+                          <textarea id="aForm_4" rows="4"></textarea>
+                        </div>
+                      </section>
+                    </form>
+                </clr-tab-content>
+            </ng-template>
+        </clr-tab>
+
+        <clr-tab>
+            <button clrTabLink>Action</button>
+            <ng-template [(clrIfActive)]="ActionActive">
+                <clr-tab-content>
+                    [ACTION]
+                </clr-tab-content>
+            </ng-template>
+        </clr-tab>
+    </clr-tabs>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="closeModal(false, 'triggerAddNew_open')">Cancel</button>
+    <button type="button" class="btn btn-outline" (click)="closeModal()">Cancel</button>
     <button type="button" class="btn btn-primary" (click)="add()">ADD</button>
   </div>
 </clr-modal>

@@ -1,14 +1,11 @@
 <app-loader></app-loader>
 
 <clr-main-container class="main-container">
-  <clr-alert [clrAlertType]="'alert-danger'" [clrAlertAppLevel]="true">
+  <clr-alert [clrAlertType]="'alert-danger'" [clrAlertAppLevel]="true" [clrAlertClosable]="false" [hidden]="socketStatus$ | async">
     <clr-alert-item>
       <span class="alert-text">
         Please check your internet connection
       </span>
-      <div class="alert-actions">
-        <button class="btn alert-action">Update</button>
-      </div>
     </clr-alert-item>
   </clr-alert>
   <clr-header class="header header-6">

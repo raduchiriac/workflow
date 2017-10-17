@@ -13,7 +13,7 @@ module.exports = (server, db) => {
     console.log('\x1b[32m✔ CONNECTED:', client.id, '\x1b[0m');
 
     client.on("join", (data) => {
-
+      console.log('client wants to join', data);
     });
 
     client.on(actions.ADD_JOB, (job) => {

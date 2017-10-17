@@ -28,5 +28,5 @@ export class TriggersService {
     .map((payload: Trigger[]) => new TriggersActions.TriggersAdd(payload))
     .subscribe((action) => {
       this.store.dispatch(action);
-    });
+    })
 }
