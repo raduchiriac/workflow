@@ -191,9 +191,44 @@
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.38.tgz#6131569a9fe21fe7bad8abf4a3174ea5a8647bbd"
 
-"@types/jasmine@2.6.0":
+"@types/bluebird@*":
+  version "3.5.16"
+  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.16.tgz#d65dbbf3bc62a0b3dd145f48dc6511b1ed8cc6bb"
+
+"@types/core-js@0.9.43":
+  version "0.9.43"
+  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.43.tgz#65d646c5e8c0cd1bdee37065799f9d3d48748253"
+
+"@types/hammerjs@2.0.35":
+  version "2.0.35"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.35.tgz#7b7c950c7d54593e23bffc8d2b4feba9866a7277"
+
+"@types/jasmine@*", "@types/jasmine@2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.6.0.tgz#997b41a27752b4850af2683bc4a8d8222c25bd02"
+
+"@types/karma-jasmine@0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/karma-jasmine/-/karma-jasmine-0.0.29.tgz#d4545bcca5b6b86ffcd40b16ff8fbf2e690eaf5d"
+  dependencies:
+    "@types/jasmine" "*"
+
+"@types/karma@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@types/karma/-/karma-1.7.1.tgz#cb85a3acaf39e308f226d00ec45be1484b3e651f"
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/node" "*"
+
+"@types/node-sass@3.10.32":
+  version "3.10.32"
+  resolved "https://registry.yarnpkg.com/@types/node-sass/-/node-sass-3.10.32.tgz#b296cce7144ffab77b84090caad4f1e4bbea8e09"
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*":
+  version "8.0.45"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.45.tgz#89fad82439d5624e1b5c6b42f0f5d85136dcdecc"
 
 "@types/node@8.0.41":
   version "8.0.41"
