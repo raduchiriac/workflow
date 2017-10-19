@@ -36,7 +36,6 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
     const newT: Trigger = {
       className: 'demo',
       key: 'demoKey',
-      description: '',
       startTime: '',
       jobKey: 'demoJob',
       cronExpression: '* * * 8 *'

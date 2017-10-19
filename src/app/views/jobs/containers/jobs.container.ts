@@ -31,13 +31,14 @@ export class JobsContainer implements OnInit, OnDestroy {
       .subscribe(jobs => {}, error => {
         // Do something with error
       });
+    this.jobsService.load();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  loadNew() {
+  load() {
     this.jobsService.load();
   }
 

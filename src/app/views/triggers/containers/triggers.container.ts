@@ -32,6 +32,7 @@ export class TriggersContainer implements OnInit, OnDestroy {
       .subscribe(triggers => {}, error => {
         // Do something with error
       });
+    this.triggersService.load();
   }
 
   ngOnDestroy() {
@@ -46,7 +47,7 @@ export class TriggersContainer implements OnInit, OnDestroy {
     this.triggersService.load();
   }
 
-  export () { }
+  export() { }
 
   preview(id: string) {
     this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
