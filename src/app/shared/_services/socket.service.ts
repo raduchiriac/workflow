@@ -11,7 +11,7 @@ export class SocketService {
 
   private socket: SocketIOClient.Socket;
   connected$ = new BehaviorSubject<boolean>(false);
-  URL:string = environment.backend.url;
+  URL: string = environment.backend.url;
 
   constructor() {
     this.socket = socketIo(this.URL, {});

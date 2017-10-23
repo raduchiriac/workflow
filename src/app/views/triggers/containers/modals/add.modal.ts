@@ -18,6 +18,8 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
 
   triggerAddNew$: Observable<boolean>;
   triggerAddNew_open: boolean;
+  CronActive: boolean;
+  ActionActive: boolean;
 
   constructor(
     private store: Store<AppStore.AppState>,

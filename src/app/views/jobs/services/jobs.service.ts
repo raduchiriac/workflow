@@ -29,5 +29,5 @@ export class JobsService {
     .map((payload: Job[]) => new JobsActions.JobsAdd(payload))
     .subscribe((action) => {
       this.store.dispatch(action);
-    });
+    })
 }

@@ -9,7 +9,7 @@ export class AngularReduxRequestOptions extends BaseRequestOptions {
     super();
 
     const user = JSON.parse(localStorage.getItem('user'));
-    let option = {}
+    let option = {};
     this.token = user && user.token;
     this.headers.append('Content-Type', 'application/json');
     this.headers.append('Authorization', 'Bearer ' + this.token);

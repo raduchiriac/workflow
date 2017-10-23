@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Trigger } from '../../../shared/_models';
 import { TriggersService } from '../../../shared/_services';
 import * as ModalsActions from '../../../store/actions/modals.actions';
+import * as TriggersActions from '../actions/triggers.actions';
 import * as reducer from '../reducers';
 
 @Component({
@@ -24,7 +25,7 @@ export class TriggersContainer implements OnInit, OnDestroy {
     private store: Store<reducer.TriggersState>,
     private triggersService: TriggersService,
   ) {
-    this.triggers = store.select(reducer.getTriggersEntitiesState);
+    this.triggers = store.select(reducer.getTriggersEntities);
   }
 
   ngOnInit() {
@@ -50,6 +51,7 @@ export class TriggersContainer implements OnInit, OnDestroy {
   export() { }
 
   preview(id: string) {
+    this.store.dispatch(new TriggersActions.TriggerSetCurrent(id));
     this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
   }
 
