@@ -1,18 +1,29 @@
 ## Workflow API
 
-Manage your running jobs and triggers using Angular 4.x (with ngrx/store)
+Manage your running jobs and their assigned triggers — using Angular 5.x (and ngrx/store)
 
-### Start the mock SocketIO server
+![screenshot](./screenshot.gif)
+
+#### 0. Install everything
+```sh
+$ yarn && cd backend/ && yarn && cd ..
+```
+
+#### 1. Start the mock SocketIO server
 ```sh
 $ cd backend && yarn start
 ```
 
-### Start the frontend (in HMR mode)
+#### 2. Start the frontend (HMR and AOT compilation, also available)
 ```sh
+$ yarn start
 $ yarn start:hmr
+$ yarn start:aot
 ```
 
-### [Nice to Have] deploy on Github Pages
+### TODO [Nice to Have]
+
+#### A. deploy on Github Pages
 ```sh
 $ yarn build -- --base-href https://raduchiriac.github.io/workflow/
 $ angular-cli-ghpages --no-silent
