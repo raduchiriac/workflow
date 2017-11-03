@@ -3,6 +3,7 @@ import * as TriggersReducer from './triggers.reducer';
 import { AppState } from '../../../app.store';
 import { createScope } from '@angular/core/src/profile/wtf_impl';
 import { Trigger } from 'app/shared/_models';
+import { log } from 'core-js/library/web/timers';
 
 export interface TriggersState {
   triggers: TriggersReducer.State;
@@ -19,13 +20,14 @@ export const reducers: ActionReducerMap<any> = {
 const getTriggersState = createFeatureSelector<TriggersState>('triggers');
 export const getTriggersEntities = createSelector(
   getTriggersState,
-  state => {console.log(state); return state.triggers.entities; }
+  state => state.triggers.entities
 );
-// export const getCurrentTriggerKey = createSelector(
-//   getTriggersState, TriggersReducer.getCurrentTriggerKey
-// );
-// export const getCurrentTrigger = createSelector(
-//   getTriggersState,
-//   getCurrentTriggerKey,
-//   (entities, key) => { console.log(entities, key); }
-// );
+export const getCurrentTriggerKey = createSelector(
+  getTriggersState,
+  state => state && state.triggers.currentTrigger
+);
+export const getCurrentTrigger = createSelector(
+  getTriggersState,
+  getCurrentTriggerKey,
+  (state, key) => state && key && state.triggers.entities.filter(t => t.key === key)[0]
+);

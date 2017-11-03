@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, ViewEncapsulation, Input } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -14,19 +14,18 @@ import { Trigger } from 'app/shared/_models';
   styleUrls: ['preview.modal.scss'],
   encapsulation: ViewEncapsulation.None
 })
-@Injectable()
-export class PreviewModalComponent implements OnInit, OnDestroy {
+export class PreviewModalComponent implements OnInit, OnDestroy, OnChanges {
 
   triggerPreview$: Observable<boolean>;
-  currentTrigger$: any;
+  currentTrigger$: Observable<object>;
   triggerPreview_open: boolean;
-  currentTrigger: string;
+  currentTrigger: object;
 
   constructor(
     private store: Store<AppStore.AppState>,
   ) {
     this.triggerPreview$ = store.select(AppStore.getTriggerPreview);
-    this.currentTrigger$ = store.select(AppStore.getTriggerPreview);
+    this.currentTrigger$ = store.select(reducers.getCurrentTrigger);
   }
 
   closeModal() {
@@ -41,9 +40,13 @@ export class PreviewModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.triggerPreview$.subscribe(res => this.triggerPreview_open = res);
-    this.currentTrigger$.subscribe(res => this.currentTrigger = res);
+    this.currentTrigger$.subscribe(res => this.currentTrigger = res || {});
   }
 
   ngOnDestroy() {
+  }
+
+  ngOnChanges(changes) {
+    console.log(changes);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-modals',
@@ -6,7 +6,6 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } f
   styleUrls: ['modals.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-@Injectable()
 export class ModalsComponent implements OnInit, OnDestroy {
 
   constructor() { }

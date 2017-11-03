@@ -6,6 +6,6 @@ import cronstrue from 'cronstrue';
 })
 export class CronToHuman implements PipeTransform {
   transform(cron: string): string {
-    return cronstrue.toString(cron);
+    return cron ? cronstrue.toString(cron) : '';
   }
 }

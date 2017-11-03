@@ -7,15 +7,15 @@
 <div id="triggers-component">
   <div *ngFor="let trigger of (triggers | async) let idx = index" class="row">
     <div class="col-lg-12 trigger">
-      <div class="clickable" (click)="preview(trigger.key)">
+      <div class="clickable" [ngClass]="!trigger.disabled && 'disabled'" (click)="preview(trigger.key)">
         <div><span class="trigger-prop">Key</span> {{trigger.key}}</div>
         <div><span class="trigger-prop">Class Name</span> {{trigger.className}}</div>
         <div><span class="trigger-prop">Description</span> {{trigger.description}}</div>
-        <div><span class="trigger-prop">Cron</span> {{trigger.cronExpression | cron2human}}</div>
+        <div><span class=""><clr-icon shape="clock"></clr-icon></span> {{trigger.cronExpression | cron2human}}</div>
         <div><span class="trigger-prop">Start Time</span> {{trigger.startTime | date:"dd MMM, yyyy HH:mm"}}</div>
       </div>
       <div class="toggle-switch">
-        <input type="checkbox" id="toggle_{{idx}}" checked>
+        <input type="checkbox" id="toggle_{{idx}}" [checked]="trigger.disabled" (change)="toggleDisable($event, trigger.key)">
         <label for="toggle_{{idx}}"></label>
       </div>
     </div>

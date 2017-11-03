@@ -22,6 +22,7 @@ exports.db = {
     'description': 'Ea esse ipsum velit laboris nulla aliquip.',
     'cronExpression': '0 23 ? * MON-FRI',
     'startTime': '1501017519665',
+    'disabled': true
   }, {
     'key': 'workflow:scheduleUndeliveredMessagesTrigger2',
     'className': 'org.quartz.impl.triggers.CronTriggerImpl',

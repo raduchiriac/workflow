@@ -1,6 +1,15 @@
 <clr-modal [(clrModalOpen)]="triggerPreview_open" id="modals-trigger-preview" [clrModalSkipAnimation]="true" (clrModalOpenChange)="closeModal()">
   <div class="modal-body">
-    PREVIEW
+    <div class="current-trigger">
+      <h4>{{currentTrigger?.key}}</h4>
+      <p>{{currentTrigger?.className}}</p>
+      <div>{{currentTrigger?.description}}</div>
+      <div><span class=""><clr-icon shape="clock"></clr-icon></span> {{currentTrigger?.cronExpression | cron2human}}</div>
+      <div><strong>Start Time:</strong> {{currentTrigger?.startTime | date:"dd MMM, yyyy HH:mm"}}</div>
+    </div>
+    <div class="jobs-list">
+
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="closeModal()">Close</button>

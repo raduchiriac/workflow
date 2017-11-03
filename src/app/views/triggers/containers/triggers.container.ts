@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -14,7 +14,6 @@ import * as reducer from '../reducers';
   styleUrls: ['triggers.container.scss'],
   encapsulation: ViewEncapsulation.None
 })
-@Injectable()
 export class TriggersContainer implements OnInit, OnDestroy {
 
   triggers: Observable<Array<Trigger>>;
@@ -53,6 +52,10 @@ export class TriggersContainer implements OnInit, OnDestroy {
   preview(id: string) {
     this.store.dispatch(new TriggersActions.TriggerSetCurrent(id));
     this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
+  }
+
+  toggleDisable (evt, key) {
+    this.store.dispatch(new TriggersActions.TriggerToggleDisabled({key, value: !evt.target.checked}));
   }
 
 }

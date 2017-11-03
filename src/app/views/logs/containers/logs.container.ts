@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit, Injectable } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-containers-logs',
@@ -6,7 +6,6 @@ import { Component, ChangeDetectionStrategy, OnInit, Injectable } from '@angular
   styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-@Injectable()
 export class LogsContainerComponent implements OnInit {
 
   constructor() { }

@@ -5,4 +5,5 @@ export interface Trigger {
   description?: string;
   cronExpression: string;
   startTime: string;
+  disabled?: boolean;
 }

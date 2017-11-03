@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, Inject, Injectable, OnChanges, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, ViewEncapsulation, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -13,7 +13,6 @@ import * as TriggersActions from '../../../triggers/actions/triggers.actions';
   styleUrls: ['add.modal.scss'],
   encapsulation: ViewEncapsulation.None
 })
-@Injectable()
 export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
 
   triggerAddNew$: Observable<boolean>;

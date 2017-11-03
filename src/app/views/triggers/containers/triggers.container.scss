@@ -4,6 +4,11 @@
   .trigger {
     display: flex;
     align-items: center;
+    border-radius: 3px;
+
+    &:hover {
+      background-color:rgba(221, 221, 221, 0.2);
+    }
 
     .trigger-prop {
       font-weight: 600;
@@ -15,17 +20,28 @@
     .clickable {
       padding: 1em;
       border-bottom: 1px dotted #CCC;
-      border-radius: 3px;
       flex-grow: 1;
+      text-align: inherit;
 
-      &:hover {
+      &.disabled {
+        color: #CCC;
+        text-shadow: 1px 1px white;
+      }
+
+      &:not(.disabled):hover {
         background-color: #EEE;
-        cursor: pointer;
+        cursor: pointer
       }
     }
 
     .toggle-switch {
-      margin-left: 1em;
+      margin: 0 1rem;
+
+      input[type=checkbox]:not(:checked)+label:before {
+        /* https://vmware.github.io/clarity/documentation/color */
+        background-color: #F52F22;
+        border-color: #F52F22;
+      }
     }
   }
 }
