@@ -26,11 +26,13 @@
       &.disabled {
         color: #CCC;
         text-shadow: 1px 1px white;
+        user-select: none;
+        cursor: default;
       }
 
       &:not(.disabled):hover {
         background-color: #EEE;
-        cursor: pointer
+        cursor: pointer;
       }
     }
 

@@ -24,7 +24,6 @@ export function reducer(state = initialState, action: TriggersActions.Actions) {
       let idx: number = state.entities.findIndex(e => e.key === action.payload.key),
         newTrigger = Object.assign({}, state.entities[idx]);
       newTrigger.disabled = action.payload.value;
-      console.log(action.payload.value)
       return {...state, entities: Object.assign([], state.entities, {[idx]: newTrigger})};
     default:
       return state;
