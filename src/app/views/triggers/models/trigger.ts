@@ -3,7 +3,7 @@ export interface Trigger {
   className: string;
   jobKey: string;
   description?: string;
-  cronExpression: string;
+  cronExpression?: string;
   startTime: string;
   disabled?: boolean;
 }

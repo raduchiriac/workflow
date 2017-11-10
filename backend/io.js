@@ -17,8 +17,17 @@ module.exports = (server, db) => {
     });
 
     client.on(actions.TRIGGER_ADD, (trigger) => {
-      db.triggers.push(trigger)
+      db.triggers.push(trigger);
+
       io.emit(actions.TRIGGER_ADDED, trigger);
+    })
+
+    client.on(actions.TRIGGER_UPDATE, (data) => {
+      const idx = db.triggers.findIndex(e => e.key === data.key),
+        T = Object.assign({}, db.triggers[idx], data.props);
+      db.triggers = Object.assign([], db.triggers, {[idx]: T});
+
+      io.emit(actions.TRIGGER_UPDATED, T);
     })
 
     client.on('disconnect', () => {

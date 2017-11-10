@@ -19,6 +19,9 @@
           <input type="checkbox" id="toggle_{{idx}}" [checked]="!trigger.disabled" (change)="toggleDisable($event, trigger.key)">
           <label for="toggle_{{idx}}"></label>
         </div>
+        <button type="button" class="btn btn-icon" [disabled]="!trigger.disabled" (click)="delete(trigger.key)">
+          <clr-icon shape="trash"></clr-icon>
+        </button>
       </div>
     </div>
   </div>

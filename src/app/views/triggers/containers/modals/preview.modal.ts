@@ -34,8 +34,8 @@ export class PreviewModalComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   save() {
+    // TODO: Update data
     this.closeModal();
-    console.log('saving...');
   }
 
   ngOnInit() {
@@ -46,7 +46,5 @@ export class PreviewModalComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
   }
 
-  ngOnChanges(changes) {
-    console.log(changes);
-  }
+  ngOnChanges(changes) { }
 }

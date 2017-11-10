@@ -13,12 +13,13 @@ import * as TriggersActions from '../../../triggers/actions/triggers.actions';
   styleUrls: ['add.modal.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
+export class AddModalComponent implements OnInit, OnDestroy {
 
   triggerAddNew$: Observable<boolean>;
   triggerAddNew_open: boolean;
   CronActive: boolean;
   ActionActive: boolean;
+  AddLoading: boolean;
 
   constructor(
     private store: Store<AppStore.AppState>,
@@ -26,14 +27,13 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
     this.triggerAddNew$ = this.store.select(AppStore.getTriggerAdd);
   }
 
-  // @Input() trigger: Trigger;
-  // @Output() onTriggerAdded = new EventEmitter<Trigger>();
-
   closeModal() {
+    this.AddLoading = false;
     this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
   }
 
   add() {
+    this.AddLoading = true;
     const T: Trigger = {
       className: 'demo',
       key: 'demoKey',
@@ -41,8 +41,8 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
       jobKey: 'demoJob',
       cronExpression: '* * * 8 *'
     };
-    // this.onTriggerAdded.emit(this.trigger);
     this.store.dispatch(new TriggersActions.TriggerAdd(T));
+    // TODO: Do this after the Promise
     this.closeModal();
   }
 
@@ -53,8 +53,4 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
   }
 
-  ngOnChanges(changes) {
-    // console.log('changes >>', changes);
-    // this.trigger = this.trigger;
-  }
 }

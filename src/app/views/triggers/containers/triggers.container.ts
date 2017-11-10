@@ -54,8 +54,17 @@ export class TriggersContainer implements OnInit, OnDestroy {
     this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
   }
 
+  delete(key) {
+    // TODO: Delete this key
+  }
+
   toggleDisable (evt, key) {
-    this.store.dispatch(new TriggersActions.TriggerToggleDisabled({key, value: !evt.target.checked}));
+    this.store.dispatch(new TriggersActions.TriggerUpdate({
+      key,
+      props: {
+        disabled: !evt.target.checked
+      }
+    }));
   }
 
 }

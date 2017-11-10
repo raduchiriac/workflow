@@ -12,8 +12,9 @@ import { State } from '../reducers';
 
 @Injectable()
 export class TriggersService {
-  
-  addedTrigger$:Observable<any>;
+
+  addedTrigger$: Observable<any>;
+  updatedTrigger$: Observable<any>;
   URL: string;
 
   constructor(
@@ -23,6 +24,7 @@ export class TriggersService {
   ) {
     this.URL = environment.backend.url;
     this.addedTrigger$ = this.socket.listen(TriggersActions.TRIGGER_ADDED);
+    this.updatedTrigger$ = this.socket.listen(TriggersActions.TRIGGER_UPDATED);
   }
 
   load = () =>
@@ -35,8 +37,12 @@ export class TriggersService {
     .subscribe((action) => {
       this.store.dispatch(action);
     })
-  
-  add = (T:Trigger) => {
+
+  add = (T: Trigger) => {
     this.socket.emit(TriggersActions.TRIGGER_ADD, T);
+  }
+
+  update = (payload) => {
+    this.socket.emit(TriggersActions.TRIGGER_UPDATE, payload);
   }
 }

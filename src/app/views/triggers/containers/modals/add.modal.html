@@ -45,6 +45,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="closeModal()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="add()">ADD</button>
+    <button [clrLoading]="AddLoading" type="button" class="btn btn-primary" (click)="add()">ADD</button>
   </div>
 </clr-modal>
