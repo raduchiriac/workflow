@@ -10,6 +10,8 @@ import { PipesModule } from '../../shared/_pipes/pipes.module';
 import { TriggersContainer } from './containers/triggers.container';
 
 import { reducers } from './reducers';
+import { SocketService, TriggersService } from '../../shared/_services';
+import { TriggersEffects } from './effects/triggers.effects';
 
 @NgModule({
   imports: [
@@ -22,10 +24,14 @@ import { reducers } from './reducers';
       component: TriggersContainer
     }]),
     StoreModule.forFeature('triggers', reducers),
+    EffectsModule.forFeature([TriggersEffects])
   ],
   declarations: [
     TriggersContainer,
   ],
-  providers: [],
+  providers: [
+    SocketService,
+    TriggersService
+  ],
 })
 export class TriggersModule {}

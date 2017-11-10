@@ -26,23 +26,23 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
     this.triggerAddNew$ = this.store.select(AppStore.getTriggerAdd);
   }
 
-  @Input() trigger: Trigger;
-  @Output() onTriggerAdded = new EventEmitter<Trigger>();
+  // @Input() trigger: Trigger;
+  // @Output() onTriggerAdded = new EventEmitter<Trigger>();
 
   closeModal() {
     this.store.dispatch(new ModalsActions.CloseTriggerAddAction());
   }
 
   add() {
-    const newT: Trigger = {
+    const T: Trigger = {
       className: 'demo',
       key: 'demoKey',
       startTime: '',
       jobKey: 'demoJob',
       cronExpression: '* * * 8 *'
     };
-    this.onTriggerAdded.emit(this.trigger);
-    this.store.dispatch(new TriggersActions.TriggerAdd(newT));
+    // this.onTriggerAdded.emit(this.trigger);
+    this.store.dispatch(new TriggersActions.TriggerAdd(T));
     this.closeModal();
   }
 
@@ -53,9 +53,8 @@ export class AddModalComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy() {
   }
 
-  ngOnChanges() {
-    console.log('changes >>', this.trigger);
-
+  ngOnChanges(changes) {
+    // console.log('changes >>', changes);
     // this.trigger = this.trigger;
   }
 }

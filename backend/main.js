@@ -1,4 +1,4 @@
-const socketio = require('socket.io');
+import { socketio } from 'socket.io';
 
 let db = require('./db').db;
 const server = require('./server')(db);

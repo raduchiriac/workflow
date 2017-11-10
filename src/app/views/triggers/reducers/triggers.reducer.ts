@@ -16,7 +16,7 @@ export function reducer(state = initialState, action: TriggersActions.Actions) {
     case TriggersActions.TRIGGERS_ADD:
       return {...state, entities: action.payload};
     // Singular
-    case TriggersActions.TRIGGER_ADD:
+    case TriggersActions.TRIGGER_ADDED:
       return {...state, entities: [...state.entities, action.payload]};
     case TriggersActions.TRIGGER_SET_CURRENT:
       return {...state, currentTrigger: action.payload};

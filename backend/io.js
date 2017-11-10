@@ -12,25 +12,14 @@ module.exports = (server, db) => {
   io.on('connection', (client) => {
     console.log('\x1b[32m✔ CONNECTED:', client.id, '\x1b[0m');
 
-    client.on("join", (data) => {
-      console.log('client wants to join', data);
+    client.on("join", (room) => {
+      // client.join(room);
     });
 
-    client.on(actions.ADD_JOB, (job) => {
-
-    });
-
-    client.on(actions.LIST_JOBS, () => {
-
-    });
-
-    client.on(actions.UPDATE_JOB, (job) => {
-
-    });
-
-    client.on(actions.DELETE_JOB, (job) => {
-
-    });
+    client.on(actions.TRIGGER_ADD, (trigger) => {
+      db.triggers.push(trigger)
+      io.emit(actions.TRIGGER_ADDED, trigger);
+    })
 
     client.on('disconnect', () => {
       console.log('\x1b[31m✕ DISCONNECTED:', client.id, '\x1b[0m');

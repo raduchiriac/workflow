@@ -17,7 +17,7 @@ export const AppRoutes: Routes = [
   // Redirect
   {
     path: '',
-    redirectTo: '/jobs',
+    redirectTo: '/triggers',
     pathMatch: 'full'
   }, {
     path: '**',

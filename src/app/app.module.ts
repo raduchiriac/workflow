@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { ClarityModule } from 'clarity-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -29,6 +30,7 @@ import { reducers, metaReducers } from './app.store';
     ClarityModule.forRoot(),
     RouterModule.forRoot(AppRoutes),
     StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],
