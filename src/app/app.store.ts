@@ -51,6 +51,7 @@ export function AppStore(state: any, action: any) {
 const getModalsState = createFeatureSelector<ModalsReducer.State>('modals');
 export const getTriggerAdd = createSelector(getModalsState, ModalsReducer.getTriggerAdd);
 export const getTriggerPreview = createSelector(getModalsState, ModalsReducer.getTriggerPreview);
+export const getTriggerDelete = createSelector(getModalsState, ModalsReducer.getTriggerDelete);
 
 const getSocketState = createFeatureSelector<SocketReducer.State>('socket');
 export const getSocketStatus = createSelector(getSocketState, SocketReducer.getSocketStatus);

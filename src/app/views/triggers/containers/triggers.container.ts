@@ -51,11 +51,12 @@ export class TriggersContainer implements OnInit, OnDestroy {
 
   preview(id: string) {
     this.store.dispatch(new TriggersActions.TriggerSetCurrent(id));
-    this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction(id));
+    this.store.dispatch(new ModalsActions.OpenTriggerPreviewAction());
   }
 
-  delete(key) {
-    // TODO: Delete this key
+  delete(id: string) {
+    this.store.dispatch(new TriggersActions.TriggerSetCurrent(id));
+    this.store.dispatch(new ModalsActions.OpenTriggerDeleteAction());
   }
 
   toggleDisable (evt, key) {

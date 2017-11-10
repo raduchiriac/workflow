@@ -15,9 +15,6 @@
         display: flex;
         flex-direction: column;
 
-        .modal-header {
-          display: none;
-        }
         .modal-body {
           flex-grow: 1;
           overflow-y: auto;

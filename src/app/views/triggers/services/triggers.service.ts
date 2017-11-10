@@ -15,6 +15,7 @@ export class TriggersService {
 
   addedTrigger$: Observable<any>;
   updatedTrigger$: Observable<any>;
+  deletedTrigger$: Observable<any>;
   URL: string;
 
   constructor(
@@ -25,6 +26,7 @@ export class TriggersService {
     this.URL = environment.backend.url;
     this.addedTrigger$ = this.socket.listen(TriggersActions.TRIGGER_ADDED);
     this.updatedTrigger$ = this.socket.listen(TriggersActions.TRIGGER_UPDATED);
+    this.deletedTrigger$ = this.socket.listen(TriggersActions.TRIGGER_DELETED);
   }
 
   load = () =>
@@ -44,5 +46,9 @@ export class TriggersService {
 
   update = (payload) => {
     this.socket.emit(TriggersActions.TRIGGER_UPDATE, payload);
+  }
+
+  delete = (key) => {
+    this.socket.emit(TriggersActions.TRIGGER_DELETE, key);
   }
 }

@@ -1,0 +1,10 @@
+<clr-modal [(clrModalOpen)]="triggerDelete_open" [clrModalSize]="'sm'" (clrModalOpenChange)="closeModal()">
+  <h3 class="modal-title">Confirm</h3>
+  <div class="modal-body">
+      <p>Are you sure you want to delete this trigger?</p>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="closeModal()">Cancel</button>
+      <button [clrLoading]="DeleteLoading" type="button" class="btn btn-primary" (click)="delete()">DELETE</button>
+  </div>
+</clr-modal>

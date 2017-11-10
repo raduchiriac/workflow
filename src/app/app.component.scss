@@ -10,6 +10,10 @@ body {
   app-modals {
     position: absolute;
   }
+
+  .btn:focus, button:focus {
+    outline: none;
+  }
 }
 
 // Animations

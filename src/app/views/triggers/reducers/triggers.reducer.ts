@@ -23,6 +23,8 @@ export function reducer(state = initialState, action: TriggersActions.Actions) {
     case TriggersActions.TRIGGER_UPDATED:
       const idx: number = state.entities.findIndex(e => e.key === action.payload.key);
       return {...state, entities: Object.assign([], state.entities, {[idx]: action.payload})};
+    case TriggersActions.TRIGGER_DELETED:
+      return {...state, entities: state.entities.filter(t => t.key !== action.payload)};
     default:
       return state;
   }

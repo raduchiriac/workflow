@@ -30,6 +30,12 @@ module.exports = (server, db) => {
       io.emit(actions.TRIGGER_UPDATED, T);
     })
 
+    client.on(actions.TRIGGER_DELETE, (key) => {
+      db.triggers = db.triggers.filter(t => t.key !== key);
+
+      io.emit(actions.TRIGGER_DELETED, key);
+    })
+
     client.on('disconnect', () => {
       console.log('\x1b[31m✕ DISCONNECTED:', client.id, '\x1b[0m');
     });
