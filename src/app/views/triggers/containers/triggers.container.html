@@ -14,9 +14,11 @@
         <div><span class=""><clr-icon shape="clock"></clr-icon></span> {{trigger.cronExpression | cron2human}}</div>
         <div><span class="trigger-prop">Start Time</span> {{trigger.startTime | date:"dd MMM, yyyy HH:mm"}}</div>
       </div>
-      <div class="toggle-switch">
-        <input type="checkbox" id="toggle_{{idx}}" [checked]="!trigger.disabled" (change)="toggleDisable($event, trigger.key)">
-        <label for="toggle_{{idx}}"></label>
+      <div class="actions">
+        <div class="toggle-switch">
+          <input type="checkbox" id="toggle_{{idx}}" [checked]="!trigger.disabled" (change)="toggleDisable($event, trigger.key)">
+          <label for="toggle_{{idx}}"></label>
+        </div>
       </div>
     </div>
   </div>
